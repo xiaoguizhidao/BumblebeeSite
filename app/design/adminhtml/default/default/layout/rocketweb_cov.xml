@@ -1,0 +1,19 @@
+<layout>
+	<adminhtml_catalog_product_options>
+		<reference name="root">
+			<block type="rocketweb_cov/adminhtml_validators" name="rocketweb.cov.adminhtml_validators" template="rocketweb_cov/adminhtml/validators.phtml"/>
+		</reference>
+	</adminhtml_catalog_product_options>	
+	<adminhtml_catalog_product_edit>
+		<reference name="head">
+			<action method="addCss"><name>rocketweb/adminhtml/custom_option_validation.css</name></action>
+			<action method="addJs"><script>rocketweb/adminhtml/custom_option_validation.js</script></action>
+		</reference>
+	</adminhtml_catalog_product_edit>
+	<adminhtml_catalog_product_new>
+		<reference name="head">
+			<action method="addCss"><name>rocketweb/adminhtml/custom_option_validation.css</name></action>
+			<action method="addJs"><script>rocketweb/adminhtml/custom_option_validation.js</script></action>
+		</reference>
+	</adminhtml_catalog_product_new>
+</layout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<menu>
+		<system>
+			<children>
+				<convert translate="title">
+					<children>
+						<catimport translate="title" module="catimportexport">
+							<title>Category Import</title>
+							<action>catimportexport/adminhtml_import</action>
+							<sort_order>30</sort_order>
+						</catimport>
+						<catexport translate="title" module="catimportexport">
+							<title>Category Export</title>
+							<action>catimportexport/adminhtml_import/export</action>
+							<sort_order>30</sort_order>
+						</catexport>
+					</children>
+				</convert>
+			</children>
+		</system>
+	</menu>
+	
+	<acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <convert>
+                                <children>
+                                    <catimport module="catimportexport">
+                                        <title>Category Import</title>
+                                        <sort_order>30</sort_order>
+                                    </catimport>
+                                    <catexport module="catimportexport">
+                                        <title>Category Export</title>
+                                        <sort_order>30</sort_order>
+                                    </catexport>
+                                </children>
+                            </convert>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

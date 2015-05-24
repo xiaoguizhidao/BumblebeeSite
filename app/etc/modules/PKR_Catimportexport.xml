@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <PKR_Catimportexport>
+      <active>true</active>
+      <codePool>community</codePool>            
+      <version>0.1.0</version>
+    </PKR_Catimportexport>
+  </modules>
+</config>

@@ -1,0 +1,221 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<div id="header"><div id="logo_containe">
+        <div class="logo"><a href="<?php echo $this->getUrl('')?>"><img src="<?php echo $this->getSkinUrl('images/logo.jpg')?>" alt="Logo" /></a></div>
+        <div id="fb_icons_containe"><div id="live_chat_container">
+        
+        <?php echo $this->getChildHtml('topSearch') ?>
+        <div class="live_chat"><a href="#" onclick="openWin()"><img alt="" src="<?php echo $this->getSkinUrl('images/online.jpg')?>" /></a>
+        <script>
+function openWin()
+{
+var myWindow = window.open("https://v2.zopim.com/widget/popout.html?key=2bxp0AtPMpMuqCdKI2SRPICT2BskkYRX","","width=275,height=450,right=0,screenX=1060,screenY=95");
+mywindow.moveTo(0, 0);
+}
+</script>
+</div></div>
+            <div class="phone_no">Call us toll-free <span>1.800.220.4888</span></div><div id="topsocial">
+            <a href="https://www.facebook.com/Bumblebeewireless" target="_blank"><img src="<?php echo $this->getSkinUrl('images/fb_icon.jpg')?>" width="25" height="25" onmouseover="this.src='<?php echo $this->getSkinUrl('images/fb_icon_hover.jpg')?>'" onmouseout="this.src='<?php echo $this->getSkinUrl('images/fb_icon.jpg')?>'" alt="" /></a>
+            <a href="https://twitter.com/repairbuysell" target="_blank"><img src="<?php echo $this->getSkinUrl('images/twiter.jpg')?>" width="25" height="25" onmouseover="this.src='<?php echo $this->getSkinUrl('images/twiter_hover.jpg')?>'" onmouseout="this.src='<?php echo $this->getSkinUrl('images/twiter.jpg')?>'" alt="" /></a>
+            <a href="https://www.youtube.com/channel/UCuR28wTTOvtRRDLg_FdO6rg" target="_blank"><img src="<?php echo $this->getSkinUrl('images/youtube.jpg')?>" width="25" height="25" onmouseover="this.src='<?php echo $this->getSkinUrl('images/youtube_hover.jpg')?>'" onmouseout="this.src='<?php echo $this->getSkinUrl('images/youtube.jpg')?>'" alt="" /></a></div></div><div id="top_menu_container">
+            <div id="topmenu">
+	<ul>
+    <li class="home"><a href="<?php echo $this->getUrl('')?>" class="home"><img src="<?php echo $this->getSkinUrl('images/home_icon.png')?>" width="18" height="18" alt="" /></a></li>
+    
+<li>
+<?php /*?><a style="cursor: pointer;" href="<?php echo $this->getUrl('repair-it')?>">Repair It</a><?php */?>
+<p><a href="<?php echo $this->getUrl('repair-it')?>">Repair It</a></p>
+<ul class="abtNan">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-repairit')->toHtml(); ?>
+</ul>
+  </li>       
+        
+         <li><?php /*?><a href="<?php echo $this->getUrl('trade-in-gadgets')?>">Sell It</a><?php */?>
+      <p><a href="<?php echo $this->getUrl('trade-in-gadgets')?>">Sell It</a></p>
+<ul class="abtNan">
+  <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-sellit')->toHtml(); ?>      
+  </ul>   
+</li>
+	  <li>
+	  <?php /*?><a href="<?php echo $this->getUrl('')?>">Insure It</a><?php */?>
+      <p><a href="<?php echo $this->getUrl('buy-it-category')?>">Buy It</a></p>
+<ul class="abtNan">
+     <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-buyit')->toHtml(); ?>       
+</ul>
+</li>
+		
+       
+<li><!--<a href="http://stores.ebay.com/bumblebee-wireless" target="_blank">Buy It</a>-->
+       <p><a href="http://us.protectyourbubble.com/protection-plans">Insure It</a></p>
+<ul class="abtNan">
+ <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-insureit')->toHtml(); ?>
+        </ul>
+        </li>
+        <li>
+		<p><a href="<?php echo $this->getUrl('unlock-your-phone.html')?>">Unlock It</a></p>
+<ul class="abtNan"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-unlock')->toHtml(); ?>
+</ul>  <?php /*?><a href="<?php echo $this->getUrl('unlock-phones.html')?>">Unlock It</a><?php */?></li>
+        <li>
+        <p><a href="http://www.dpbolvw.net/click-7644463-11449330" target="_blank">Prepay It</a></p>
+<ul class="abtNan">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-prepay')->toHtml(); ?>
+        </ul>
+</li>
+ <li>
+		<p><a href="http://www.gopjn.com/t/SENHTUlGTkxDR0hNT0dLQ0dITEhNTw" target="_blank">Skin It</a></p>
+<ul class="abtNan">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-skinit')->toHtml(); ?>
+        </ul>
+        </li>
+ <li>
+ <p><a href="<?php echo $this->getUrl('bling-it')?>">Bling It</a></p>
+<ul class="abtNan">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-blingit')->toHtml(); ?> 
+        </ul>
+        </li>
+        <li>
+        <p><a href="<?php echo $this->getUrl('The-Buzz/cat/the-buzz/')?>">Buzz It</a></p>
+<ul class="abtNan">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-buzz')->toHtml(); ?>
+        </ul>
+    </li>
+        <li>
+        <p><a href="<?php echo $this->getUrl('about')?>">About Us</a></p>
+<ul class="abtNan">
+       <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-aboutus')->toHtml(); ?>
+        </ul>
+</li>
+<?php $priceto = number_format($this->helper('checkout/cart')->getQuote()->getGrandTotal(), 2, '.', '');?>
+        <li class="last"><a href="<?php echo $this->getUrl('checkout/cart')?>"><?php if($this->helper('checkout/cart')->getSummaryCount() > 0) { echo $this->helper('checkout/cart')->getSummaryCount(); } else { echo 0; } ?> item(s)-<?php
+     echo $total = '$'.$priceto; ?></a>
+<ul class="shopdopdown">
+    <li style="max-width:300px;  width:100%; text-indent:0px;">
+   <?php echo $this->getChildHtml('topcart'); ?>
+</li>
+</ul></li>
+	</ul>
+</div>
+            </div>
+
+					<div id="dl-menu" class="dl-menuwrapper">
+						<button>Open Menu</button>
+						<ul class="dl-menu">
+<li><a style="cursor: pointer;" href="#">Repair It</a>
+<ul class="dl-submenu">
+<li class="dl-back"><a href="#">back</a></li>
+<li><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-repairit')->toHtml(); ?></li>
+</ul> <li>
+								 <li>
+								<a href="#">Sell it</a>
+								<ul class="dl-submenu">
+                                <li class="dl-back"><a href="#">back</a></li>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-sellit')->toHtml(); ?>   
+										
+								</ul>
+							</li>
+                            
+                            
+                            
+                        <li>
+								<a href="#">Buy It</a>
+								<ul class="dl-submenu">
+				<li class="dl-back"><a href="#">back</a></li>
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-buyit')->toHtml(); ?>
+										
+								</ul>
+							</li>    
+                            
+<li><a href="#">Insure It</a>
+<ul class="dl-submenu">
+<li class="dl-back"><a href="#">back</a></li>
+ <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-insureit')->toHtml(); ?>
+</ul></li>
+<li><a href="#">Unlock It</a>
+<ul class="dl-submenu">
+	<li class="dl-back"><a href="#">back</a></li>
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-unlock')->toHtml(); ?>
+										
+								</ul>
+
+</li>
+
+        <li><a href="<?php echo $this->getUrl('')?>">Prepay It</a>
+        <ul class="dl-submenu">
+		<li class="dl-back"><a href="#">back</a></li>
+       <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-prepay')->toHtml(); ?>
+        </ul>
+        </li>
+                                    
+                <li><a href="<?php echo $this->getUrl('')?>">Skin It</a>
+        <ul class="dl-submenu">
+		<li class="dl-back"><a href="#">back</a></li>
+       <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-skinit')->toHtml(); ?>
+        </ul>
+        </li>
+                                    
+
+        <li><a href="<?php echo $this->getUrl('')?>">Bling It</a>
+        <ul class="dl-submenu">
+		<li class="dl-back"><a href="#">back</a></li>
+       <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-blingit')->toHtml(); ?> 
+        </ul>
+        </li>
+                                    
+                 <li><a href="<?php echo $this->getUrl('')?>">Buzz It</a>
+        <ul class="dl-submenu">
+		<li class="dl-back"><a href="#">back</a></li>
+       <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-buzz')->toHtml(); ?>
+        </ul>
+        </li>
+                  
+    
+    <li>
+								<a href="#">About Us</a>
+								<ul class="dl-submenu">
+											<li class="dl-back"><a href="#">back</a></li>
+     <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-aboutus')->toHtml(); ?>										
+								</ul>
+							</li>
+                            
+                            
+                                                    
+						</ul>
+					</div><!-- /dl-menuwrapper -->
+<script src="<?php echo $this->getSkinUrl('js/modernizr.custom.js')?>"></script>
+<script src="<?php echo $this->getSkinUrl('js/jquery.dlmenu.js')?>"></script>
+		<script>
+			$(function() {
+				$( '#dl-menu' ).dlmenu({
+					animationClasses : { in : 'dl-animate-in-5', out : 'dl-animate-out-5' }
+				});
+			});
+		</script>
+      
+</div></div>

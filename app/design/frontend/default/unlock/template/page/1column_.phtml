@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head')?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery-1.11.0.min.js')?>"></script>
+</head>
+<body>
+<div id="main_container">
+	<div id="contaner"><span>Bumblebee Wireless&trade; Leaders in Buying, Selling, Repairing and Customizing Wireless Technologies. | <a href="<?php echo $this->getUrl('trade-in-gadgets')?>">Click - Ship </a> <a href="<?php echo $this->getUrl('repair-it')?>">- Fix - Return&trade;</a></span>
+    <div class="top_link">
+    	<ul>
+       <li><a href="<?php echo $this->getUrl('customer/account/login')?>">Log In</a></li>
+        <li><a href="<?php echo $this->getUrl('checkout')?>">Checkout</a></li>
+        <li><a href="<?php echo $this->getUrl('checkout/cart')?>">My Cart</a></li>
+        <li><a href="<?php echo $this->getUrl('customer/account/')?>">My Account</a></li>
+        </ul></div></div></div>
+        <div id="center_main_container">
+        <div id="center_container">
+        <?php echo $this->getChildHtml('header')?>
+<span class="clear"></span>
+<div id="banner_container">
+</div>
+<div id="center_mid_container">
+	<div id="category_container">
+                    	<!--<div class="category_heading"> <?php echo Mage::getSingleton('cms/page')->getTitle() ?></div>
+                         <div class="categorysub_heading">Click on your Manufacture Below</div>-->
+                        <div id="categorylist-container">
+<?php echo $this->getChildHtml('global_notices') ?>
+<?php echo $this->getChildHtml('global_messages') ?>
+<?php echo $this->getChildHtml('content') ?>   
+        </div>
+</div>
+</div>
+<?php echo $this->getChildHtml('footer')?>
+<?php /*?><script src="<?php echo $this->getSkinUrl('js/jquery.min.js')?>"></script><?php */?>
+<?php /*?><script src="<?php  echo $this->getSkinUrl('js/jquery.min.js')?>"></script><?php */?>
+</div></div>
+</body>
+</html>

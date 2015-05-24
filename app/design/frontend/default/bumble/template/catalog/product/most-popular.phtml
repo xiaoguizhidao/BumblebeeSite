@@ -1,0 +1,53 @@
+<section class="products_heading">Or Choose From Our Most Popular Bee Squad&trade; Certified Repairs</section>
+                        <section id="wn">
+<section id="lyr1">
+   <ul>
+    <?php 
+
+/*
+define('MAGENTO', realpath(dirname(__FILE__)));
+require_once MAGENTO.'/app/Mage.php';
+Mage::app();*/
+
+/* Provide a known category id that has children as a test */
+$id = 29;
+
+/* Provide a placeholder image URL for categories that don't yet have one */
+$catimg = 'http://example.com/img/placeholder.gif';
+
+/* Load category by id*/
+$cat = Mage::getModel('catalog/category')->load($id);
+
+
+/*Returns comma separated ids*/
+$subcats = $cat->getChildren();
+
+//Print out categories string
+#print_r($subcats);
+
+foreach(explode(',',$subcats) as $subCatid)
+{
+  $_category = Mage::getModel('catalog/category')->load($subCatid);
+  if($_category->getIsActive())
+  {
+    $caturl     = $_category->getURL();
+    $catname     = $_category->getName();
+    if($_category->getImageUrl())
+    {
+      $catimg     = $_category->getImageUrl();
+
+    }
+	?>
+    
+       <li><a href="<?php echo $caturl;?>"><img src="<?php echo $catimg;?>" border="0" width="195" height="269" /></a></li>
+
+<?php
+    //echo '<h2><a href="'.$caturl.'" title="View the products for this category"><img src="'.$catimg.'" alt="" />'.$catname.'</a></h2>';
+  }
+}
+?>
+</ul>
+</section>
+</section>
+<section id="scrollLinks"></section>
+<!--<section class="mid_banner"><img src="<?php echo $this->getSkinUrl('images/center_banner.jpg')?>" width="802" height="158"></section>-->

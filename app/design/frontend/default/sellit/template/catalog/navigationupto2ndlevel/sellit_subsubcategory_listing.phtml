@@ -1,0 +1,99 @@
+<div style="width:100%; height:100%; padding: 0px; margin:0px; float:left; ">
+
+ 	<div style="width:100%; height:80px;">
+
+		<div style="float:left;">
+
+		<img src="<?php echo $this->getSkinUrl('close-div/images/question.png')?>" />
+
+		<!-- Place the following code in the head section of your web page -->
+
+<style type="text/css">
+
+span.link {
+    	position: relative;
+}
+
+    span.link a span {
+    	display: none;
+}
+
+span.link a:hover {
+    	font-size: 99%;
+    	font-color: #000000;
+}
+
+span.link a:hover span { 
+   display: block;
+position: absolute;
+margin-top: 0px;
+margin-left: 35px;
+width: 290px;
+padding: 5px;
+z-index: 100;
+color: #494949;
+background: none repeat scroll 0% 0% #fff;
+font: 12px "Arial",sans-serif;
+text-align: left;
+text-decoration: none;
+border: 1px solid #494949;
+border-radius: 5px;
+}
+</style>
+
+<!-- Place this code in the body section of your page -->
+
+<span class="link"><a href="javascript: void(0)"><font style="color:#266986; font-family:Helvetica; font-size:14px; position:relative; bottom:5px; width:100%;">What's my <?php echo Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName() ?> capacity ?  </font><span><?php echo Mage::getSingleton('catalog/layer')->getCurrentCategory()->getDescription() ?></span></a></span>
+
+
+
+
+
+		</div>
+
+	</div>
+
+
+<?php
+$_categoriessub=$this->getCurrentChildCategories();
+if($_categoriessub->count()):
+$categorycount = 0;
+foreach ($_categoriessub as $_categorysub):
+if($_categorysub->getIsActive()):
+$cur_categorysub=Mage::getModel('catalog/category')->load($_categorysub->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_categorysub);
+$catName = $this->getCurrentCategory()->getName();
+?>
+	
+
+	
+
+	<div style="width:auto; height:auto; float:left; margin-right:10px;">
+
+		<div>
+
+		<a href="<?php echo $this->getCurrentCategory()->getUrl() ?>"><img src="<?php echo $this->getCurrentCategory()->getImageUrl() ?>" width="175" height="175" /></a>
+
+		</div>
+
+		<div style="width:auto; font-family:Helvetica; font-size:14px; color:#333333;"> <?php echo $catName; ?></div>
+
+		<br />
+
+		<div><a href="<?php echo $this->getCurrentCategory()->getUrl() ?>"> <img src="<?php echo $this->getSkinUrl('close-div/images/offer.png')?>" /></a></div>
+
+	</div>
+    
+    
+<?php
+endif;
+endforeach;
+endif;
+?>		
+    
+    
+    
+    
+
+ </div>

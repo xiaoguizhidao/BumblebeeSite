@@ -1,0 +1,278 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
+<section class="main_container">
+<section class="left_side">
+<section class="applications_heading">Bee Squad&trade; Tech Application</section>
+<section class="applications_heading2">Applying to Join Our Elite Team</section>
+<section class="applications_text">We require the completion of this application before the consideration of an<br>
+  individual applying to be one of our awesome Bee Squad Techs. We have very stringent<br>
+  standards for those that are accepted to be licensed Affiliates. Tell us your story,<br>
+  we want to hear from you!</section>
+  <section class="applications_text"><strong>1.</strong> To make sure we are able to contact you, provide your email address</section>
+  <section class="email_frnd">
+  <p class="p">Email Address</p>
+  <input name="email" id="email"   type="text" class="text_fld">
+  </section>
+    <section class="email_frnd">
+  <p class="p">Confirm Email Address</p>
+  <input name="cemail" id="cemail"   type="text" class="text_fld">
+  </section>
+    <section class="applications_text"><strong>2.</strong> Please provide us your contact information.This will also allow us to look at your<br>
+    Iocal area to see what type of volume is currently occurring in the market.</section>
+    <section class="email_frnd">
+    <p class="p">Salutation</p>
+    <select name="salutation" id="salutation">
+    <option>Please Select...</option>
+     <option value="Mr.">Mr.</option>
+     <option value="Mrs.">Mrs.</option>
+     <option value="Miss">Miss</option>
+     
+    </select>
+    </section>
+
+<section class="form_container">
+<section class="first_name">
+<p class="p">First Name</p>
+<input name="name" id="name"  type="text" class="text_fld">
+</section>
+<section class="last_name">
+<p class="p">Last Name</p>
+<input name="lastname" id="lastname"  type="text" class="text_fld">
+</section>
+<section class="email_frnd">
+  <p class="p">Street 1</p>
+  <input  name="street" id="street" type="text" class="text_fld">
+  </section>
+  <section class="email_frnd">
+  <p class="p">Street 2</p>
+  <input  name="street2" id="street2"  type="text" class="text_fld">
+  </section>
+  <section class="city">
+  <p class="p">City</p>
+  <input  name="city" id="city" type="text" class="text_fld">
+  </section>
+    <section class="zipcode">
+  <p class="p">Zipcode</p>
+  <input  name="zipcode" id="zipcode" type="text" class="text_fld">
+  </section>
+  <section class="state">
+  <p class="p"><strong>State</strong></p>
+   <input  name="state" id="state" type="text" class="text_fld">
+  </section>
+    <section class="country">
+  <p class="p"><strong>Country</strong></p>
+  <?php $_countries = Mage::getResourceModel('directory/country_collection')
+                                    ->loadData()
+                                    ->toOptionArray(false) ?>
+<?php if (count($_countries) > 0): ?>
+    <select name="country" id="country">
+        <option value="">-- Please Select --</option>
+        <?php foreach($_countries as $_country): ?>
+            <option value="<?php echo $_country['label'] ?>">
+                <?php echo $_country['label'] ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+<?php endif; ?>
+  </section>
+   <section class="email_frnd">
+  <p class="p">Phone Number</p>
+  <input  name="telephone" id="telephone" type="text" class="text_fld">
+  </section>
+    <section class="applications_text"><strong>3.</strong> As part of the Bumblebee process, all Bee Squad Techs are required to purchase<br>
+      a startup kit ranging from $699 to $1499 which includes a full tool supply, startup<br>
+      hardware, and licensing agreements. Please select the time line within which you<br>
+      will be able to purchase the Bee Squad Starter Kit:</section>
+ <section class="options">
+  <p class="p">Options</p>
+  <select name="options" id="options" class="select_menu">
+      <option>Please Select...</option>
+      <option value="2 Weeks">2 Weeks</option>
+      <option value="3 Weeks">3 Weeks</option>
+      <option value="One Month">One Month</option>
+      <option value="Two Months">Two Months</option>
+      <option value="Three Months">Three Months</option>
+  </select>
+  </section>
+  
+  <section class="applications_text"><strong>4.</strong> Please provide any additional information that we should konow about, whether<br>
+    Your experience in the industry or just general information about youreslf!</section>
+ <section class="email_frnd">
+  <p class="p">Additional Information</p>
+  <input name="comment" id="comment" type="text" class="text_fld">
+  </section>
+   <section class="applications_text"><strong>5.</strong> How did you hear about the opportunity to become a local Bee Squad Technician?</section>
+   
+   <section class="options">
+  <p class="p">Options</p>
+  <select name="options2" id="options2" class="select_menu">
+      <option>Please Select...</option>
+      <option value="Google Search">Google Search</option>
+       <option value="Yahoo Search">Yahoo Search</option>
+        <option value="Bing">Bing</option>
+         <option value="Facebook">Facebook</option>
+          <option value="Twitter">Twitter</option>
+           <option value="Reddit">Reddit</option>
+            <option value="Bee squad Referral">Bee Squad Referral</option>
+             <option value="Media Article">Media Article</option>
+             <option value="DIY Kit Purchase">DIY Kit Purchase</option>
+             <option value="Repair Videos">Repair Videos</option>
+             <option value="Friend Told Me">Friend Told Me</option>
+             <option value="Bee Squad Event">Bee Squad Event</option>
+             <option value="Bumblebee Store">Bumblebee Store</option>
+             <option value="Other">Other</option>
+  </select>
+  </section>
+
+<section class="submit_container">
+<input type="text" name="hideit" id="hideit" value="" style="display:none !important;" /><button>Submit Your Application</button>
+</section>
+
+</section>
+</section>
+
+<section class="right_side"><img src="<?php echo $this->getSkinUrl('images/shirt.jpg')?>"></section>
+
+</section>
+ </form>
+ <script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+//]]>
+</script>
+ 
+<?php /*?>
+<section class="page_main_container">
+<section class="page_left_side">
+<section class="newpage_heading">Contact Us</section>
+<section class="newpage_text">please file out form below and one of our Bee Squad Representative will contact you shortly.</section>
+<section class="newpageform_container">
+<section class="newpage_text2">Email Address <span><img src="<?php echo $this->getSkinUrl('')?><?php echo $this->getSkinUrl('images/contactstar.jpg')?>" width="18" height="11">indicates required</span></section>
+<input type="text" name="email" id="email" class="contactfld required-entry validate-email">
+<section class="newpage_text2">First Name</section>
+<input type="text" name="name" id="name" class="contactfld required-entry">
+<section class="newpage_text2">Last Name</section>
+<input type="text" name="lname" id="lname" class="contactfld">
+<section class="newpage_text2">Phone Number</section>
+<input type="text" name="telephone" id="telephone" class="contactfld required-entry">
+<section class="newpage_text2">Comment / Question</section>
+<textarea name="comment" class="contactfld2 required-entry" id="comment"></textarea>
+<section class="newpage_text2">
+    <input type="checkbox" name="checkbox" id="checkbox"> Newsletter - Subscribe and get the latest Buzz on the hottest gadgets and sweet discounts
+</section>
+<input type="text" name="hideit" id="hideit" value="" style="display:none !important;" /><button class="submit_botn">Submit</button>
+</section>
+</section>
+<section class="right_img"><img src="<?php echo $this->getSkinUrl('')?><?php echo $this->getSkinUrl('images/img1.jpg')?>"></section>
+</section>
+
+
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+//]]>
+</script><?php */?>
+
+
+
+
+
+<?php /*?><div class="center"> 
+    <!-- left start-->  
+ <div class="contcthead-fill"><span style="font-size: medium; color: #000000;">Please fill out the form below and a Bee Squad representative will contact you shortly.</span></div>
+ 
+<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
+
+    <div class="leftform">
+    <div class="contcthead">Contact Us</div>
+ 
+    <div class="requireoption1">
+    
+    <div class="fattname">First Name</div>
+    <div class="inputfatt"><input type="text" name="name" class="required-entry"></div>
+    <div class="requtext">*required</div>
+    </div>
+    <div class="sepraor"></div>
+    
+    <div class="requireoption1">
+    <div class="fattname">Last Name</div>
+    <div class="inputfatt"><input type="text" name="lname" class="required-entry"></div>
+    <div class="requtextscnd">*required</div>
+    </div>
+    <div class="sepraor"></div>
+    
+    <div class="requireoption1">
+    <div class="fattname">Email </div>
+    <div class="inputfatt"><input type="text" name="email" class="required-entry validate-email"></div>
+    <div class="requtextthrd">*required</div>
+    </div>
+    <div class="sepraor"></div>
+    
+    <div class="requireoption1">
+    <div class="fattname">Phone number</div>
+    <div class="inputfatt"><input type="text" name="telephone" class="required-entry"></div>
+    <div class="requtextfoth">*required</div>
+    </div>
+    <div class="sepraor"></div>
+    
+    <div class="requireoption1">
+    <div class="fattname">Your Message *required</div>
+    <div class="inputffth"><textarea name="comment"></textarea></div>
+   
+    </div>
+    <div class="sepraor"></div>
+    <div class="submitq"><input type="text" name="hideit" id="hideit" value="" style="display:none !important;" /><input type="submit" value="Submit" name="submit"></div>
+    
+    
+    <div class="subssecond">
+    <div class="subshead">Subscribe</div>
+    <div class="cheakfl">
+    <p><input type="checkbox"></p>
+    </div>
+    
+    <div class="cheakfr">
+    <p>Newsletter - Subscribe and get the latest buzz and sweet promotions</p>
+    </div>
+    </div>
+    </div>
+    </form>
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+//]]>
+</script>
+    
+    <!-- right start-->
+    <div class="rightform">
+    <div><img height="338" width="467" src="<?php echo $this->getSkinUrl('')?><?php echo $this->getSkinUrl('images/contact.png')?>"></div>
+    </div>
+  <!-- center end --> 
+  
+</div><?php */?>

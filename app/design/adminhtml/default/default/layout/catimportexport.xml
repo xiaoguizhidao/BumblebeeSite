@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+	<catimportexport_adminhtml_import_export>
+		<reference name="content">
+		  <block type="catimportexport/adminhtml_catexport" name="catexport" />
+		</reference>
+	</catimportexport_adminhtml_import_export>
+	
+	<catimportexport_adminhtml_import_index>
+		<reference name="content">
+		  <block type="catimportexport/adminhtml_catimport" name="catimport" />
+		</reference>
+	</catimportexport_adminhtml_import_index>
+</layout>

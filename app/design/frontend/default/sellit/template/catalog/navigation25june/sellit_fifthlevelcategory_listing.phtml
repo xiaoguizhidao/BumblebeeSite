@@ -1,0 +1,112 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('close-div/jquery.min.js')?>"></script>
+
+<script type="text/javascript">
+
+ function showonlyfour(thechosenthree) {
+
+     $('.newboxesfour').each(function(index) {
+
+          if ($(this).attr("id") == thechosenthree) {
+
+               $(this).show(200);
+
+          }
+
+          else {
+
+               $(this).hide(200);
+
+          }
+
+     });
+
+}
+
+</script>
+<div class="list" style=" float:left;">
+
+<table width="100%" height="">
+<tr>
+
+<td style="vertical-align:top; float:left;">
+
+ 
+ <?php
+$_subcategories=$this->getCurrentChildCategories();
+if($_subcategories->count()):
+$categorycount = 0;
+$fourth=1000;
+foreach ($_subcategories as $_subcategory):
+if($_subcategory->getIsActive()):
+$cur_category4th=Mage::getModel('catalog/category')->load($_subcategory->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category4th);
+$catName = $this->getCurrentCategory()->getName();
+$fourth++;
+?>
+ 
+ 
+ 
+       <?php if (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getImageUrl()!=''):?>
+				 <div style="padding: 5px;  color:#4C4C4C; font-family:Helvetica; font-size:12px; font-weight:bold;  text-align:center; float:left; ">
+            <a id="myHeader1" href="javascript:showonlyfour('newboxesfour<?php echo $fourth;?>');" <?php if ($this->isCategoryActive($_subcategory)): ?> class="active"<?php endif; ?> ><img src="<?php echo $this->getCurrentCategory()->getImageUrl() ?>"  onclick="document.getElementById('p<?php echo $fourth;?>').style.display='none'"   /><br><?php echo $this->getCurrentCategory()->getName() ?>
+            </a>
+         </div>
+				<?php else:?>
+            <div style="padding: 5px;  color:#4C4C4C; margin:5px 20px; font-family:Helvetica; font-size:12px; font-weight:bold;  text-align:center; float:left;">
+ 
+             <a id="myHeader1" href="javascript:showonlyfour('newboxesfour<?php echo $fourth;?>');" <?php if ($this->isCategoryActive($_subcategory)): ?> class="active"<?php endif; ?> >
+            <button type="button" class="button btn-selloptions"><span class="btn-selloptions"><?php echo $this->getCurrentCategory()->getName() ?></span></button></a>
+            
+            
+         </div>
+                <?php endif;?>
+	<?php
+endif;
+endforeach;
+endif;
+?>	
+		 
+		 
+<?php
+$_subcategories=$this->getCurrentChildCategories();
+if($_subcategories->count()):
+$categorycount = 0;
+$fourth=1000;
+foreach ($_subcategories as $_subcategory):
+if($_subcategory->getIsActive()):
+$cur_category4th=Mage::getModel('catalog/category')->load($_subcategory->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category4th);
+$catName = $this->getCurrentCategory()->getName();
+$fourth++;
+?>		 
+		 
+         <div class="newboxesfour" id="newboxesfour<?php echo $fourth;?>" style=" display: none;padding: 5px; margin-top:0px; width: 1024px;  z-index:1111;"> 
+ <div style="width:1024px;">		
+<?php $displayMode = $this->getCurrentCategory()->getDisplayMode();?>
+<?php if($displayMode == 'PAGE'):?>  
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sellit_sixthlevel_listing')->toHtml(); ?>
+<?php else: ?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sellit_seventhlevel_listing')->toHtml(); ?>
+<?php endif; ?>
+
+</div> 
+
+</div>
+  
+<?php
+endif;
+endforeach;
+endif;
+?>	
+
+
+ 
+ </td>
+
+  
+
+ </tr>
+ </table>
+ </div>

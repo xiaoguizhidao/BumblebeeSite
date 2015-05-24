@@ -1,0 +1,351 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery-1.2.6.min.js')?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery-ui-personalized-1.5.2.packed.js')?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/sprinkle.js')?>"></script>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+
+<table style="max-width:1024px; width:100%;">
+
+	<tr>
+
+	<td style="width:15%; text-align:center; vertical-align:top;">
+		
+		<?php $banner = $this->helper('catalog/image')->init($_product, 'image')->resize();?>
+      <?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+            <img src="<?php echo $banner;?>"  title="<?php echo $this->htmlEscape($this->getImageLabel());?>">
+    <?php else: ?>
+  <img src="<?php echo $this->getSkinUrl('images/16gb.png')?>"/>
+        <?php endif; ?>
+	</td>
+
+	<td style="max-width:850px;  width:100%; vertical-align:top;">
+
+	<div style="font-family:Helvetica; font-size:32px; margin-top:10px;"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+	</div>
+
+	<div style="font-family:Helvetica; font-size:22px; margin-top:30px; color:#333333;">1. What shape is it in?
+
+	</div>
+
+        <div id="tabvanilla" class="widget">
+
+
+
+            <ul class="tabnav">
+
+                <li>
+
+					<a href="#popular">
+
+						<div style="padding:5px 0px 0px 30px;" >
+
+							<font style="color:#ffa500; font-family:Helvetica; font-size:20px;"><?php 
+							$shortname = $_helper->productAttribute($_product, $_product->getName(), 'name');
+							$arr= str_word_count($shortname,1,'&àáãç0123456789');
+if(in_array('Broken',$arr)){
+echo "Broken";
+}elseif (in_array('broken',$arr)){
+echo "Broken";
+}elseif (in_array('Good',$arr)){
+echo "Good";
+}elseif (in_array('good',$arr)){
+echo "Good";
+}elseif (in_array('Flawless',$arr)){
+echo "Flawless";
+}elseif (in_array('flawless',$arr)){
+echo "Flawless";
+}elseif (in_array('Fair',$arr)){
+echo "Fair";
+}elseif (in_array('fair',$arr)){
+echo "Fair";
+}elseif (in_array('Working',$arr)){
+echo "Working";
+}elseif (in_array('working',$arr)){
+echo "Working";
+}
+							?></font><br />
+
+ 
+
+							<span style="color:#333; font-family:Helvetica; font-size:12px; width:100px;"><?php $shortname = $_helper->productAttribute($_product, $_product->getName(), 'name');
+$arr= str_word_count($shortname,1,'&àáãç0123456789');
+if(in_array('Broken',$arr)){
+echo "Has serious physical issues";
+}elseif (in_array('broken',$arr)){
+echo "Has serious physical issues";
+}elseif (in_array('Good',$arr)){
+echo "Normal signs of use";
+}elseif (in_array('good',$arr)){
+echo "Normal signs of use";
+}elseif (in_array('Fair',$arr)){
+echo "Has moderate to heavy physical defects, or minor functional defects";
+}elseif (in_array('fair',$arr)){
+echo "Has moderate to heavy physical defects, or minor functional defects";
+}elseif (in_array('Flawless',$arr)){
+echo "Looks like it's never been used";
+}elseif (in_array('flawless',$arr)){
+echo "Looks like it's never been used";
+} elseif (in_array('Working',$arr)){
+echo "Fully functional with normal signs of use ";
+} elseif (in_array('working',$arr)){
+echo "Fully functional with normal signs of use ";
+}
+?></span>
+
+						</div> 
+
+					</a>
+
+				</li>
+
+                
+
+                
+
+            </ul>
+
+
+
+            <div id="popular" class="tabdiv">
+
+					 <div style="max-width:800px; width:100%; height:100%;">
+
+					 <img src="<?php echo $this->getSkinUrl('images/line-1.png')?>" />
+
+					 <div style="background: none repeat scroll 0% 0% #F9F9F9; max-width: 800px; width: 100%; min-height: 65px;">
+
+					 	<div style="padding:10px 0px 0px 50px; font-size:14px; color:#333;">
+
+							<?php echo $_product->getDescription(); ?>
+
+						</div>
+
+					 
+
+					 </div>
+
+					 
+
+<?php if ($_product->getPrice()=='0.00'):?> 
+<div style="max-width:800px; width:100%; margin-top:20px; border:1px solid #333;">
+<center>
+<div style="font-family:Helvetica; color:#666; font-size:19px; font-weight:bold; padding-top:25px;">Unfortunately, we can't offer you any  money for this item</div>                 
+<div style="font-family:Helvetica; color:#666; font-size:14px; padding:10px 25px 25px; line-height:25px;">
+<p style="font-size:14px; padding:0; ">
+Becuase the cost to repair the device exceeds the value of item. Even though we can't pay you</p> 
+<p>
+<form action="https://bumblebeewireless.com/sell-it/index.php" method="post">
+<input type="hidden" name="sell_price" value="<?php echo str_replace(",","",Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice(),2)); ?>" />
+                            <input type="hidden" name="sell_item" value="<?php echo $_product->getName(); ?>" />
+                            <input type="hidden" name="sell_pic" value="<?php echo $banner; ?>" />
+we'd still like to help you recycle it responsibly. Please  <input name="add_selling" type="submit" value="Click here" style="color:#4D9CCA; text-decoration:underline; cursor:pointer; background:none; border:none;" /> to do your part in <a href="<?php echo $this->getUrl('reducing-electronic')?>" target="_blank" style="color:#4D9CCA; text-decoration:underline; cursor:pointer; background:none; border:none;">reducing electronic landfill pollution.</a>
+ <?php /*?><input name="add_selling" type="submit" value="reducing electronic landfill pollution." style="color:#4D9CCA; cursor:pointer; text-decoration:underline; background:none; border:none;" /><?php */?>
+</form>
+</p> 
+</div>
+</center>
+<?php $layer = Mage::getSingleton('catalog/layer');
+$_category = $layer->getCurrentCategory();
+$currentCategoryId= $_category->getId(); 
+$currentCategoryname= $_category->getName();
+$arr= str_word_count($currentCategoryname,1,'&àáãç0123456789');
+if(in_array('T-Mobile',$arr)){ ?>      
+ 
+                     <div style="background:#dfdfdf; color:#000; width:100%; text-align:center; margin-top:15px; padding:2px 0; line-height:22px; font-size:14px;">
+                     
+<strong>Attention T-mobile Equipment installment Plan (EIP) Customers</strong><br>you must have fully paid for you iphone in order to sell it <br>
+
+<?php  echo $this->getLayout()->createBlock('cms/block')->setBlockId('click-here-to-validate')->toHtml(); ?>
+</div>   
+<?php }?>                     
+             
+</div>
+<?php else:?>
+<?php if($_product->getMsrp()!=''):?>
+<div style="max-width:800px; width:100%; margin-top:20px;  float:left; border:1px solid #333; float:left; text-align:center;">
+<div style="float:left; width:49%;">
+<div style="font-family:Helvetica; color:#000; font-size:28px; font-weight:bold; padding-top:45px;">Unlock price</div>
+<div style="font-family:Helvetica; color:#666; font-size:56px; padding-top:15px;"><strong>
+<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getMsrp());?>
+</strong></div>
+<div style="font-family:Helvetica; color:#8f8f8f; font-size:16px; padding-top:15px; font-weight:bold;">Increase your phone's value<br> by unlocking it online for free<br>
+<a onclick="ShowMessage()" title="Unlock your phone is easy. here's how"  style="cursor:pointer; color:#005ec3; padding:18px 0 0; text-decoration:underline; padding-top:15px;font-size:14px; display:block;">Unlock your phone is easy. here's how</a><br />
+</div>
+
+                        	<form action="https://bumblebeewireless.com/sell-it/index.php" method="post">
+                            <input type="hidden" name="sell_price" value="<?php echo str_replace(",","",Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getMsrp(),2));?>" />
+                            <input type="hidden" name="sell_item" value="<?php echo $_product->getName(); ?> (Unlocked)" />
+                            <input type="hidden" name="sell_pic" value="<?php echo $banner; ?>" />
+							<div style="padding:0 0 25px 0;">
+                            <button name="add_selling" type="submit" style="background:none; border:none; cursor:pointer;"><img src="<?php echo $this->getSkinUrl('images/ad2box.png')?>" /></button>
+                            </div>
+</form>
+
+							
+                            </div>
+<div style="border: 1px solid #8f8f8f; float: left; height: 225px; margin-top: 90px;"></div>                            
+<div style="float:right; width:49%;">
+<div style="font-family:Helvetica; color:#000; font-size:28px; font-weight:bold; padding-top:45px;">Standard price</div>
+<div style="font-family:Helvetica; color:#666; font-size:56px; padding-top:15px;"><strong>
+<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice());?>
+
+</strong></div>
+<div style="font-family:Helvetica; color:#8f8f8f; font-size:16px; padding-top:15px; font-weight:bold;">AT&T phones are unlocked by default <br>
+unlocking it earns you more cash<br>
+<a onclick="ShowMessage1()" title="Here's more info on locked vs. unlocked" style="cursor:pointer; color:#005ec3; padding:15px 0 0; font-size:14px;text-decoration:underline; padding-top:15px; display:block;">Here's more info on locked vs. unlocked</a></div>
+
+                        	<form action="https://bumblebeewireless.com/sell-it/index.php" method="post">
+                            <input type="hidden" name="sell_price" value="<?php echo str_replace(",","",Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice(),2)); ?>" />
+                            <input type="hidden" name="sell_item" value="<?php echo $_product->getName(); ?>" />
+                            <input type="hidden" name="sell_pic" value="<?php echo $banner; ?>" />
+							<div style="padding:25px 0;">
+                            <button name="add_selling" type="submit" style="background:none; border:none; cursor:pointer;"><img src="<?php echo $this->getSkinUrl('images/ad2box.png')?>" /></button>
+                            </div>
+</form>
+
+							
+                            </div>
+       <?php $layer = Mage::getSingleton('catalog/layer');
+$_category = $layer->getCurrentCategory();
+$currentCategoryId= $_category->getId(); 
+$currentCategoryname= $_category->getName();
+$arr= str_word_count($currentCategoryname,1,'&àáãç0123456789');
+if(in_array('T-Mobile',$arr)){ ?>  
+                     <div style="background:#dfdfdf; color:#000; width:100%; text-align:center; margin-top:15px; padding:2px 0; line-height:22px; font-size:14px;">
+<strong>Attention T-mobile Equipment installment Plan (EIP) Customers</strong><br>you must have fully paid for you iphone in order to sell it <br>
+<?php  echo $this->getLayout()->createBlock('cms/block')->setBlockId('click-here-to-validate')->toHtml(); ?>
+</div>   
+<?php }?>                     
+                            
+					 </div>
+                     
+                            <?php else :?>
+                            <div style="max-width:800px; float:left;  width:100%; margin-top:20px; border:1px solid #333;">
+					 <center>
+  <div style="font-family:Helvetica; color:#8f8f8f; font-size:28px; padding-top:25px;">Your Bumblebee Offer</div>
+<div style="font-family:Helvetica; color:#666; font-size:56px; padding-top:25px;"><strong>
+<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice());?>
+
+<?php /*?><?php $productSku = $_product->getSku();
+$product = Mage::getModel('catalog/product');
+$productId = $product->getIdBySku( $productSku );
+
+$product = Mage::getModel("catalog/product")->load($productId);
+
+$attVal = $product->getOptions();
+
+$optStr = "";
+
+// loop through the options
+foreach($attVal as $optionKey => $optionVal) {
+
+//$optStr .= "<br/>";
+
+//$optStr .= $optionVal->getTitle().": ";
+
+$optStr .= "<select style='display:block; clear:both;' name='options[".$optionVal->getId()."]'>";
+
+foreach($optionVal->getValues() as $valuesKey => $valuesVal) {
+$optStr .= "<option value='".$valuesVal->getId()."'>".$valuesVal->getTitle()."</option>";
+}
+
+$optStr .= "</select>";
+
+}
+
+echo($optStr ); ?><?php */?>
+</strong></div>
+                        	<form action="https://bumblebeewireless.com/sell-it/index.php" method="post">
+                            <input type="hidden" name="sell_price" value="<?php echo str_replace(",","",Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice(),2)); ?>" />
+                            <input type="hidden" name="sell_item" value="<?php echo $_product->getName(); ?>" />
+                            <input type="hidden" name="sell_pic" value="<?php echo $banner; ?>" />
+							<div style="padding:25px 0;">
+                            <button name="add_selling" type="submit" style="background:none; border:none; cursor:pointer;"><img src="<?php echo $this->getSkinUrl('images/ad2box.png')?>" /></button>
+                            </div>
+</form>
+							      
+                            </center>
+<?php $layer = Mage::getSingleton('catalog/layer');
+$_category = $layer->getCurrentCategory();
+$currentCategoryId= $_category->getId();
+$currentCategoryname= $_category->getName();
+$arr= str_word_count($currentCategoryname,1,'&àáãç0123456789');
+if(in_array('T-Mobile',$arr)){ ?>  
+                     <div style="background:#dfdfdf; color:#000; width:100%; text-align:center; padding:2px 0; line-height:22px; font-size:14px;">
+<strong>Attention T-mobile Equipment installment Plan (EIP) Customers</strong><br>you must have fully paid for you iphone in order to sell it <br>
+<?php  echo $this->getLayout()->createBlock('cms/block')->setBlockId('click-here-to-validate')->toHtml(); ?>
+</div>   
+<?php }?>             
+					 </div>    
+                     
+					 
+                            <?php endif;?>
+							<?php endif;?>
+                            
+
+					 
+
+					 </div>
+
+					 
+
+            </div><!--/popular-->
+
+            
+
+
+        </div><!--/widget-->
+
+
+
+<!--/featuredvid-->
+
+
+
+</td>
+
+</tr>
+
+</table>
+
+    
+   

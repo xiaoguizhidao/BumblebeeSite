@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<reference name="head">
+			<action method="addCss"  ifconfig="cartdrop/general/enabled"><stylesheet>css/cartdrop.css</stylesheet></action>
+			<action method="addJs"  ifconfig="cartdrop/general/enabled"><script>lib/jquery-1.4.2.min.js</script></action>
+            <action method="addJs"  ifconfig="cartdrop/general/enabled"><script>lib/cartdrop.js</script></action>
+		</reference>
+		
+     <reference name="top.container">
+            <!--<action method="setTemplate" ifconfig="cartdrop/general/enabled"><template>cartdrop/template/header.phtml</template></action>-->
+	
+<block type="core/template" name="cartheader_sidebar" template="cartdrop/cartheader.phtml">			
+	<block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
+		<action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+		<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+		<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+		<block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions"/>
+	</block>
+</block>
+			
+        </reference>
+    </default> 
+</layout>

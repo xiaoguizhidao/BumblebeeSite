@@ -1,0 +1,270 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery-1.2.6.min.js')?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery-ui-personalized-1.5.2.packed.js')?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/sprinkle.js')?>"></script>
+
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+<table style="max-width:1024px; width:100%;">
+
+	<tr>
+
+	<td style="width:15%; text-align:center; vertical-align:top;">
+
+		<?php
+$layer = Mage::getSingleton('catalog/layer');
+$_category = $layer->getCurrentCategory();
+$banner = Mage::getModel('catalog/category')->load($_category->getId())->getImageUrl();
+if($banner) {
+?>
+<img src="<?php echo $banner; ?>"  width="133" height="128" />
+<?php } else { ?>
+<img src="<?php echo $this->getSkinUrl('images/16gb.png')?>"/>
+<?php } ?>
+<br/>
+<a onclick="history.back();" style="cursor:pointer; text-decoration:underline; color:#4D9CCA;">Change model</a>
+	</td>
+
+	<td style="max-width:850px;  width:100%; vertical-align:top;">
+
+	<div style="font-family:Helvetica; font-size:32px; margin-top:10px;"><?php echo $this->getLayer()->getCurrentCategory()->getName() ?>
+
+	</div>
+
+	<div style="font-family:Helvetica; font-size:22px; margin-top:30px; color:#333333;">1. What shape is it in?
+
+	</div>
+
+        <div id="tabvanilla" class="widget">
+
+
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<ul class="tabnav">
+  <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+    <?php $i++;?>
+                <li>
+
+					<a href="#popular<?php echo $i?>">
+
+						<div style="padding:5px 0px 0px 30px;" >
+
+							<font style="color:#000; font-family:Helvetica; font-size:20px;">
+							
+							<?php 
+							$shortname = $_helper->productAttribute($_product, $_product->getName(), 'name');
+							$arr= str_word_count($shortname,1,'&àáãç0123456789');
+if(in_array('Broken',$arr)){
+echo "Broken";
+}elseif (in_array('Good',$arr)){
+echo "Good";
+}elseif (in_array('Flawless',$arr)){
+echo "Flawless";
+}
+							?>
+                            
+                            </font><br />
+
+ 
+
+							<span style="color:#333; font-family:Helvetica; font-size:12px; width:100px;"><?php 
+							$shortname = $_helper->productAttribute($_product, $_product->getName(), 'name');
+							$arr= str_word_count($shortname,1,'&àáãç0123456789');
+if(in_array('Broken',$arr)){
+echo "Has serious physical issues";
+}elseif (in_array('Good',$arr)){
+echo "Normal signs of use";
+}elseif (in_array('Flawless',$arr)){
+echo "Looks like it's never been used";
+}
+							?>
+							<?php // echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></span>
+
+						</div> 
+
+					</a>
+
+				</li>
+
+                
+
+                
+<?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+
+            </ul>
+
+ <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+
+<?php endif; ?>
+ <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+    <?php $i++;?>
+            <div id="popular<?php echo $i?>" class="tabdiv">
+
+					 <div style="max-width:800px; width:100%; height:100%;">
+
+					 <img src="<?php echo $this->getSkinUrl('images/line-'.$i.'.png')?>" />
+
+					 <div style="background:#f9f9f9; max-width:800px;  width:100%; min-height:65px;">
+
+					 	<div style="padding:10px 0px 10px 50px; font-size:14px; color:#333;">
+
+							<?php echo $_product->getDescription(); ?>
+                            
+                            
+
+						</div>
+
+					 
+
+					 </div>
+
+					 
+
+					 <div style="max-width:800px; width:100%; margin-top:20px; border:1px solid #333;">
+
+					 <center>
+
+					 		<div style="font-family:Helvetica; color:#8f8f8f; font-size:28px; padding-top:25px;">Your Bumblebee Offer</div>
+
+							
+<?php if ($_product->getPrice()=='0.00'):?>                  
+<div style="font-family:Helvetica; color:#666; font-size:14px; padding:25px; line-height:25px;">
+<p style="font-size:16px; padding:0 0 15px; "><strong>The cost to repair the device exceeds to the value of the device once repaired.</strong></p> 
+<p>Even though we can't pay you for your device, we want to help you recycle it responsibility.</p>
+<p> Please  
+<form action="http://bumblebeewireless.com/sell-it/index.php" method="post">
+<input type="submit" value="Click here" style="color:#4D9CCA; text-decoration:underline; background:none; border:none;" />
+ to learn how to recycle your device quickly and easily and<br/> help the planet by 
+
+
+                            <input type="hidden" name="sell_price" value="<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice()); ?>" />
+                            <input type="hidden" name="sell_item" value="<?php echo $_product->getName(); ?>" />
+                            <input type="hidden" name="sell_pic" value="<?php echo $banner; ?>" />
+							
+</form>
+<a href="" style="color:#4D9CCA; text-decoration:underline;">
+reducing electronic landfill pollution.
+</a>
+</p> 
+</div>
+<?php else:?>
+<div style="font-family:Helvetica; color:#666; font-size:56px; padding-top:25px;"><strong>
+<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice());?>
+</strong></div>
+
+						
+                        
+                        	<form action="http://bumblebeewireless.com/sell-it/index.php" method="post">
+                            <input type="hidden" name="sell_price" value="<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice()); ?>" />
+                            <input type="hidden" name="sell_item" value="<?php echo $_product->getName(); ?>" />
+                            <input type="hidden" name="sell_pic" value="<?php echo $banner; ?>" />
+							<div style="padding-top:25px;">
+                            <button name="add_selling" type="submit" style="background:none; border:none; cursor:pointer;"><img src="<?php echo $this->getSkinUrl('images/ad2box.png')?>" /></button>
+                            </div>
+</form>
+
+
+
+<div style="font-family:Helvetica; color:#000; font-size:18px; font-weight:bold; padding-top:25px; padding-left:30px; float:left;">Why sell to Bumblebee</div><br /><br />
+
+
+
+
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:48px; padding:30px; width:100%;">
+
+							
+
+								<table>
+
+									<tr>	
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px; ">
+
+											&bull; 30 day offer guarantee<br />
+
+
+
+											&bull; Free shipping
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull; Fast payment
+
+<br />
+
+
+
+											&bull; Free data wipe
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull; Step by step updates<br />
+
+
+
+											&bull; No listing hassles
+
+										</td>
+
+									</tr>
+
+								</table>
+
+							
+
+							</div>
+<?php endif;?>
+     
+							
+
+							
+
+							
+
+						</center>
+
+					 </div>
+
+					 
+
+					 </div>
+
+					 
+
+            </div><!--/popular-->
+
+            
+<?php endforeach ?>
+
+
+
+        </div><!--/widget-->
+
+
+
+<!--/featuredvid-->
+
+
+
+</td>
+
+</tr>
+
+</table>

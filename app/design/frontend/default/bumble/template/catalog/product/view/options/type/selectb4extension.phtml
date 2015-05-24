@@ -1,0 +1,319 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="js/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+	$nocf = $.noConflict();
+        $nocf(document).ready(function () {
+            $nocf("#def-dialog").click(function () {
+                $nocf("#MyDialog").dialog();
+            });
+			$nocf("#def-dialog1").click(function () {
+                $nocf("#MyDialog1").dialog();
+            });
+			$nocf("#def-dialog2").click(function () {
+                $nocf("#MyDialog2").dialog();
+            });
+			$nocf("#def-dialog3").click(function () {
+                $nocf("#MyDialog3").dialog();
+            });
+			$nocf("#def-dialog4").click(function () {
+                $nocf("#MyDialog4").dialog();
+            });
+			$nocf("#def-dialog5").click(function () {
+                $nocf("#MyDialog5").dialog();
+            });
+			$nocf("#def-dialog6").click(function () {
+                $nocf("#MyDialog6").dialog();
+            });
+			$nocf("#def-dialog7").click(function () {
+                $nocf("#MyDialog7").dialog();
+            });
+			$nocf("#def-dialog8").click(function () {
+                $nocf("#MyDialog8").dialog();
+            });
+			$nocf("#def-dialog9").click(function () {
+                $nocf("#MyDialog9").dialog();
+            });
+			$nocf("#def-dialog10").click(function () {
+                $nocf("#MyDialog10").dialog();
+            });
+			$nocf("#def-dialog11").click(function () {
+                $nocf("#MyDialog11").dialog();
+            });
+			$nocf("#def-dialog12").click(function () {
+                $nocf("#MyDialog12").dialog();
+            });
+			$nocf("#def-dialog13").click(function () {
+                $nocf("#MyDialog13").dialog();
+            });
+        });
+    </script>
+    
+<?php /* @var $this Mage_Catalog_Block_Product_View_Options_Type_Select */ ?>
+<?php $_option = $this->getOption() ?>
+<dt><label<?php if ($_option->getIsRequire()) echo ' class="required"' ?>><?php if ($_option->getIsRequire()) echo '<em>*</em>' ?><?php echo  $this->escapeHtml($_option->getTitle()) ?>:&nbsp;
+<?php if ($_option->getTitle()=='Ship to Us'){?>
+        <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Ship to Us" id="def-dialog"/>
+        <div id="MyDialog" style="display: none;">
+		<?php
+$attributeCode = 'Shiptous';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getShiptous()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getShiptous() ?>
+<?php endif;?>
+</div>
+       <?php } elseif($_option->getTitle()=='Ship Back') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Ship Back" id="def-dialog1" />
+        <div id="MyDialog1" style="display: none;">
+		<?php
+$attributeCode = 'Shipback';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getShipback()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getShipback() ?>
+<?php endif;?>
+</div>
+ <?php } elseif($_option->getTitle()=='Donations') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Donations" id="def-dialog10" />
+        <div id="MyDialog10" style="display: none;">
+        <?php
+$attributeCode = 'donations';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getDonations()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getDonations() ?>
+<?php endif;?></div>
+ <?php } elseif($_option->getTitle()=='Donation') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Donation" id="def-dialog10" />
+        <div id="MyDialog10" style="display: none;">
+        <?php
+$attributeCode = 'donations';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getDonations()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getDonations() ?>
+<?php endif;?></div>
+         <?php } elseif($_option->getTitle()=='Signature') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Signature" id="def-dialog2" />
+        <div id="MyDialog2" style="display: none;">
+        <?php
+$attributeCode = 'Signature';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getSignature()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getSignature() ?>
+<?php endif;?></div>
+         <?php } elseif($_option->getTitle()=='Insurance') {?>
+      <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Insurance" id="def-dialog3" />
+        <div id="MyDialog3" style="display: none;">
+		<?php
+$attributeCode = 'Insurance';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getInsurance()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getInsurance() ?>
+<?php endif;?>
+</div>
+         <?php } elseif($_option->getTitle()=='Turnaround') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Turnaround" id="def-dialog4" />
+        <div id="MyDialog4" style="display: none;">
+		<?php
+$attributeCode = 'Turnaround';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getTurnaround()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getTurnaround() ?>
+<?php endif;?>
+</div>
+         <?php } elseif($_option->getTitle()=='Passwords') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Passwords" id="def-dialog5" />
+        <div id="MyDialog5" style="display: none;">
+		<?php
+$attributeCode = 'Passwords';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getPasswords()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getPasswords() ?>
+<?php endif;?>
+</div>
+
+        <?php } elseif($_option->getTitle()=='Protection') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Protection" id="def-dialog6" />
+        <div id="MyDialog6" style="display: none;">
+		<?php
+$attributeCode = 'Protection';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getProtection()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getProtection() ?>
+<?php endif;?>
+</div>
+
+ <?php } elseif($_option->getTitle()=='Shipping') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Shipping" id="def-dialog7" />
+        <div id="MyDialog7" style="display: none;">
+		<?php
+$attributeCode = 'shipping_question';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getShippingQuestion()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getShippingQuestion() ?>
+<?php endif;?>
+</div>
+
+
+ <?php } elseif($_option->getTitle()=='Monthly Plans') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Monthly Plans" id="def-dialog8" />
+        <div id="MyDialog8" style="display: none;">
+		<?php
+$attributeCode = 'monthly_plans';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getMonthlyPlans()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getMonthlyPlans() ?>
+<?php endif;?>
+</div>
+
+ <?php } elseif($_option->getTitle()=='Cell Number') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Cell Number" id="def-dialog9" />
+        <div id="MyDialog9" style="display: none;">
+		<?php
+$attributeCode = 'cell_number';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getCellNumber()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getCellNumber() ?>
+<?php endif;?>
+</div>
+
+ <?php } elseif($_option->getTitle()=='Capacity') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Capacity" id="def-dialog11" />
+        <div id="MyDialog11" style="display: none;">
+		<?php
+$attributeCode = 'capacity';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getCapacity()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getCapacity() ?>
+<?php endif;?>
+</div>
+
+
+ <?php } elseif($_option->getTitle()=='Carrier') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Carrier" id="def-dialog12" />
+        <div id="MyDialog12" style="display: none;">
+		<?php
+$attributeCode = 'carrier';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getCarrier()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getCarrier() ?>
+<?php endif;?>
+</div>
+
+
+ <?php } elseif($_option->getTitle()=='Condition') {?>
+       <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Condition" id="def-dialog13" />
+        <div id="MyDialog13" style="display: none;">
+		<?php
+$attributeCode = 'conditions';
+$attribute = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setCodeFilter($attributeCode)
+            ->getFirstItem();?>
+<?php if ($_product->getConditions()==''):?>
+<?php echo $attribute->getDefaultValue();?>
+<?php else:?>
+<?php echo $_product->getConditions() ?>
+<?php endif;?>
+</div>
+         <?php  } ?>
+         <img src="<?php echo $this->getSkinUrl('images/repairit/questionmark.png')?>" title="Condition" id="def-dialog13" />
+          <div id="MyDialog13" style="display: none;">
+         <?php if ($_option->getDescription()): ?>
+			<?php echo $_option->getDescription() ?>
+            </div>
+	<?php endif;?>
+         </label> 
+       </dt>
+      
+<dd<?php if ($_option->decoratedIsLast){?> class="last"<?php }?>>
+    <div class="input-box">
+        <?php echo $this->getValuesHtml() ?>
+        <?php if ($_option->getIsRequire()): ?>
+            <?php if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_RADIO || $_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_CHECKBOX): ?>
+                <span id="options-<?php echo $_option->getId() ?>-container"></span>
+            <?php endif; ?>
+        <?php endif;?>
+    </div>
+</dd>

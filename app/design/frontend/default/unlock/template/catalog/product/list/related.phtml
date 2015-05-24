@@ -1,0 +1,125 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php if($this->getItems()->getSize()): ?>
+<div id="releated_prod">
+<div id="new_product_con">
+       	<div id="new_pro_hadcon">
+          <div class="new_pro_hading">Recomended Products</div>
+          <div id="new_pro_arrleft"><a href="javascript:;" onclick="dw_scrollObj.scrollBy('wn4',-200,0); return false"><img src="<?php echo $this->getSkinUrl('images/arrow_dummyright.jpg')?>" width="10" height="17" title="Next"></a></div>
+
+          <div id="new_pro_arrleft"><a href="javascript:;" onclick="dw_scrollObj.scrollBy('wn4',200,0); return false"><img src="<?php echo $this->getSkinUrl('images/arrow_dummyleft.jpg')?>" width="10" height="17" title="Back"></a></div></div>
+                      <table width="975" border="0" align="left" cellpadding="0" cellspacing="0">
+
+		    <tr align="center" valign="middle">
+
+    <td width="975" height="250" align="left"><div id="hold4">
+
+      <div id="wn4">
+
+        <!-- scrolling layers start here -->
+
+        <div style="top: 1px; left: 0px; margin:0px 0px 0px 0px; visibility: visible;" id="lyr4" class="content">
+   <div class="new_pro_area">
+
+                      		<ul>             
+
+<table width="975" border="0" cellspacing="0" cellpadding="0" id="t4">
+
+
+
+  <tr>
+
+
+
+  <?php foreach($this->getItems() as $_item): ?>
+ <td><li>
+<h2><strong><?php echo $this->escapeHtml($_item->getName()) ?></strong></h2>
+  <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(164,100) ?>" width="164" height="100" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
+<p><a onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>')" style="cursor:pointer;">Add to Basket</a>|  <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>">Detail</a></p>
+ 
+ <?php
+ $price = $_item->getPrice();
+ $webprice = $_item->getwebprice();
+ $specialprice = $_item->getFinalPrice();
+ if($specialprice==$price)
+ {?>
+ <s></s><b>$<?php echo number_format($price,2);?></b>
+ <?php } else { ?>
+ <s>$<?php echo number_format($price,2); ?></s><b>$<?php echo number_format($specialprice,2); ?></b>
+ <?php } ?>
+</li></td>
+ <?php endforeach ?>
+        <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
+
+    <script type="text/javascript">
+    //<![CDATA[
+    $$('.related-checkbox').each(function(elem){
+        Event.observe(elem, 'click', addRelatedToProduct)
+    });
+
+    var relatedProductsCheckFlag = false;
+    function selectAllRelated(txt){
+        if (relatedProductsCheckFlag == false) {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = true;
+            });
+            relatedProductsCheckFlag = true;
+            txt.innerHTML="<?php echo $this->__('unselect all') ?>";
+        } else {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = false;
+            });
+            relatedProductsCheckFlag = false;
+            txt.innerHTML="<?php echo $this->__('select all') ?>";
+        }
+        addRelatedToProduct();
+    }
+
+    function addRelatedToProduct(){
+        var checkboxes = $$('.related-checkbox');
+        var values = [];
+        for(var i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked) values.push(checkboxes[i].value);
+        }
+        if($('related-products-field')){
+            $('related-products-field').value = values.join(',');
+        }
+    }
+    //]]>
+    </script>
+
+  </tr></table></ul>
+</div>
+</div>
+</div>
+</div></td>
+</tr>
+</table>
+</div>
+</div>
+<?php endif ?>
+

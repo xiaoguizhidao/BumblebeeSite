@@ -1,0 +1,546 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery-1.2.6.min.js')?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery-ui-personalized-1.5.2.packed.js')?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/sprinkle.js')?>"></script>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+  <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <?php echo $this->getBlockHtml('formkey') ?>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+<table style="max-width:1024px; width:100%;">
+
+	<tr>
+
+	<td style="width:140px; vertical-align:top;">
+
+<?php echo $this->getChildHtml('media')?>
+	</td>
+
+	<td style="max-width:850px;  width:100%; vertical-align:top;">
+
+	<div style="font-family:Helvetica; font-size:32px; margin-top:10px;"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+	</div>
+
+	<div style="font-family:Helvetica; font-size:22px; margin-top:30px; color:#333333;">1. What shape is it in?
+
+	</div>
+
+        <div id="tabvanilla" class="widget">
+
+
+
+            <ul class="tabnav">
+
+                <li>
+
+					<a href="#popular">
+
+						<div style="padding:5px 0px 0px 30px;" >
+
+							<font style="color:#ffa500; font-family:Helvetica; font-size:20px;">Broken</font><br />
+
+ 
+
+							<span style="color:#333; font-family:Helvetica; font-size:12px; width:100px;">Does not turn on or has serious <br /><strong>physical damage</strong></span>
+
+						</div> 
+
+					</a>
+
+				</li>
+
+                <li ><a href="#recent">
+
+				<div style="padding:5px 0px 0px 30px;" >
+
+							<font style="color:#ffa500; font-family:Helvetica; font-size:20px;">Good</font><br />
+
+ 
+
+							<span style="color:#333; font-family:Helvetica; font-size:12px; width:100px;"><strong>Normal signs</strong> of use  </span>
+
+						</div> 
+
+				</a></li>
+
+                <li><a href="#featured">
+
+				<div style="padding:5px 0px 0px 30px;" >
+
+							<font style="color:#ffa500; font-family:Helvetica; font-size:20px;">Flawless</font><br />
+
+ 
+
+							<span style="color:#333; font-family:Helvetica; font-size:12px; width:100px;">Looks like it's <strong>never been used</strong>  </span>
+
+						</div> 
+
+				
+
+				 </a></li>
+
+            </ul>
+
+
+
+            <div id="popular" class="tabdiv">
+
+					 <div style="max-width:800px; width:100%; height:100%;">
+
+					 <img src="<?php echo $this->getSkinUrl('images/line-1.png')?>" />
+
+					 <div style="background:#f9f9f9; max-width:800px;  width:100%; height:150px;">
+
+					 	<div style="padding:10px 0px 0px 50px; font-size:14px; color:#333;">
+
+							Your iPhone is in this condition if <strong>any</strong> of the following are true:
+
+							<ul>
+
+								<li>Does not power on</li>
+
+								<li>Broken or cracked LCD screen or glass</li>
+
+								<li>Missing buttons (power, home, ringer, volume)</li>
+
+								<li>Broken or cracked hardware (charging ports, casing, etc.)</li>
+
+								<li>Housing separation beyond the width of a nickel</li>
+
+							</ul>
+
+						</div>
+
+					 
+
+					 </div>
+
+					 
+
+					 <div style="max-width:800px; width:100%; margin-top:20px; border:1px solid #333;">
+
+					 <center>
+
+					 		<div style="font-family:Helvetica; color:#8f8f8f; font-size:28px; padding-top:25px;">Your Gazelle Offer</div>
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:56px; padding-top:25px;"><strong>$85</strong></div>
+
+							
+
+							<div style="padding-top:25px;"><img src="<?php echo $this->getSkinUrl('images/ad2box.png')?>" /></div>
+
+							
+
+							<div style="font-family:Helvetica; color:#5c7d8d; font-size:18px; font-weight:bold; padding-top:25px; padding-left:30px; float:left;">Why sell to A20</div><br /><br />
+
+
+
+
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:48px; padding-top:25px; width:100%;">
+
+							
+
+								<table>
+
+									<tr>	
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px; ">
+
+											&bull;30 day offer guarantee<br />
+
+
+
+											&bull;Free shipping
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull;Fast payment
+
+<br />
+
+
+
+											&bull;Free data wipe
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull;Step by step updates<br />
+
+
+
+											&bull;No listing hassles
+
+										</td>
+
+									</tr>
+
+								</table>
+
+							
+
+							</div>
+
+							
+
+						</center>
+
+					 </div>
+
+					 
+
+					 </div>
+
+					 
+
+            </div><!--/popular-->
+
+            
+
+            <div id="recent" class="tabdiv">
+
+               <div style="width:800px; height:100%;">
+
+					 <img src="<?php echo $this->getSkinUrl('images/line-2.png')?>" />
+
+					 <div style="background:#f9f9f9; width:800px; height:70px;">
+
+					 	<div style="padding:10px 0px 0px 50px; font-size:14px; color:#333;">
+
+							Your iPhone is in great working order with some minor cosmetic signs of wear. Your iPhone has no cracks or missing buttons (power, home, ringer, and/or volume).
+
+							 
+
+						</div>
+
+					 
+
+					 </div>
+
+					 
+
+					 <div style="width:800px; margin-top:20px; border:1px solid #333;">
+
+					 <center>
+
+					 		<div style="font-family:Helvetica; color:#8f8f8f; font-size:28px; padding-top:25px;">Your Gazelle Offer</div>
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:56px; padding-top:25px;"> <?php echo $_product->getCondition(); ?> </div>
+
+							
+
+							<div style="padding-top:25px;"><img src="<?php echo $this->getSkinUrl('images/ad2box.png')?>" /></div>
+
+							
+
+							<div style="font-family:Helvetica; color:#5c7d8d; font-size:18px; font-weight:bold; padding-top:25px; padding-left:30px; float:left;">Why sell to A20</div><br /><br />
+
+
+
+
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:48px; padding-top:25px; width:100%;">
+
+							
+
+								<table>
+
+									<tr>	
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px; ">
+
+											&bull;30 day offer guarantee<br />
+
+
+
+											&bull;Free shipping
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull;Fast payment
+
+<br />
+
+
+
+											&bull;Free data wipe
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull;Step by step updates<br />
+
+
+
+											&bull;No listing hassles
+
+										</td>
+
+									</tr>
+
+								</table>
+
+							
+
+							</div>
+
+							
+
+						</center>
+
+					 </div>
+
+					 
+
+					 </div>
+
+            </div><!--/recent-->
+
+            
+
+            <div id="featured" class="tabdiv">
+
+                <div style="max-width:800px; width:100%; height:100%;">
+
+					 <img src="<?php echo $this->getSkinUrl('images/line-3.png')?>" />
+
+					 <div style="background:#f9f9f9; max-width:800px; width:100%; height:120px;">
+
+					 	<div style="padding:10px 0px 0px 50px; font-size:14px; color:#333;">
+
+							Your iPhone is in this condition if <strong>all</strong> of the following are true:
+
+							<ul>
+
+								<li>Works perfectly</li>
+
+								<li>No noticeable flaws, still in its package or looks like new</li>
+
+								<li>Has zero scratches</li>
+
+								<li>Has no dust under the glass</li>
+
+			 
+
+							</ul>
+
+						</div>
+
+					 
+
+					 </div>
+
+					 
+
+					 <div style=" max-width:800px; width:100%; margin-top:20px; border:1px solid #333;">
+
+					 <center>
+
+					 		<div style="font-family:Helvetica; color:#8f8f8f; font-size:28px; padding-top:25px;">Your Gazelle Offer</div>
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:56px; padding-top:25px;"><strong><?php echo $this->getChildHtml('alert_urls') ?>
+            <?php echo $this->getChildHtml('product_type_data') ?>
+            
+            <?php echo $this->getChildHtml('extrahint') ?></strong></div>
+
+							
+
+							<div style="padding-top:25px;"><img src="<?php echo $this->getSkinUrl('images/ad2box.png')?>" /></div>
+
+							
+
+							<div style="font-family:Helvetica; color:#5c7d8d; font-size:18px; font-weight:bold; padding-top:25px; padding-left:30px; float:left;">Why sell to A20</div><br /><br />
+
+
+
+
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:48px; padding-top:25px; width:100%;">
+
+							
+
+								<table>
+
+									<tr>	
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px; ">
+
+											&bull;30 day offer guarantee<br />
+
+
+
+											&bull;Free shipping
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull;Fast payment
+
+<br />
+
+
+
+											&bull;Free data wipe
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull;Step by step updates<br />
+
+
+
+											&bull;No listing hassles
+
+										</td>
+
+									</tr>
+
+								</table>
+
+							
+
+							</div>
+
+							
+
+						</center>
+
+					 </div>
+
+					 
+
+					 </div>
+
+            </div><!--featured-->
+
+
+
+        </div><!--/widget-->
+
+
+
+<!--/featuredvid-->
+
+
+
+</td>
+
+</tr>
+
+</table>
+       </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+    //]]>
+    </script> 
+    
+   

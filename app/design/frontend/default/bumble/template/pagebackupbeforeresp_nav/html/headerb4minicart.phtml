@@ -1,0 +1,141 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<section id="header"><section id="logo_containe">
+        <section class="logo"><a href="<?php echo $this->getUrl('')?>"><img src="<?php echo $this->getSkinUrl('images/logo.jpg')?>" border="0"></a></section>
+        <section id="fb_icons_containe"><section id="live_chat_container">
+        
+        <?php echo $this->getChildHtml('topSearch') ?>
+        <section class="live_chat"><img src="<?php echo $this->getSkinUrl('images/online.jpg')?>" ></section></section>
+            <section class="phone_no">Call us toll-free <span>1.800.220.4888</span></section><section id="topsocial">
+            <a href="<?php echo $this->getUrl('')?>"><img src="<?php echo $this->getSkinUrl('images/fb_icon.jpg')?>" width="25" height="25" onmouseover="this.src='<?php echo $this->getSkinUrl('images/fb_icon_hover.jpg')?>'" onmouseout="this.src='<?php echo $this->getSkinUrl('images/fb_icon.jpg')?>'" ></a>
+            <a href="<?php echo $this->getUrl('')?>"><img src="<?php echo $this->getSkinUrl('images/twiter.jpg')?>" width="25" height="25" onmouseover="this.src='<?php echo $this->getSkinUrl('images/twiter_hover.jpg')?>'" onmouseout="this.src='<?php echo $this->getSkinUrl('images/twiter.jpg')?>'" ></a>
+            <a href="<?php echo $this->getUrl('')?>"><img src="<?php echo $this->getSkinUrl('images/youtube.jpg')?>" width="25" height="25" onmouseover="this.src='<?php echo $this->getSkinUrl('images/youtube_hover.jpg')?>'" onmouseout="this.src='<?php echo $this->getSkinUrl('images/youtube.jpg')?>'" ></a></section></section><section id="top_menu_container">
+            <nav id="topmenu">
+	<ul>
+    <li class="home"><a href="<?php echo $this->getUrl('')?>" class="home"><img src="<?php echo $this->getSkinUrl('images/home_icon.png')?>" width="18" height="18" alt=""></a></li>
+    
+    
+    <?php $_helper = Mage::helper('catalog/category') ?>
+
+    <?php $_categories = $_helper->getStoreCategories() ?>
+<?php $currentCategory = Mage::registry('current_category') ?>
+<?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
+<?php if (count($_categories) > 0):
+$cm=0;
+ ?>
+<?php foreach($_categories as $_category):
+$cm++;
+ ?>
+  <?php $_category = Mage::getModel('catalog/category/products')->load($_category->getId()); 
+  ?>
+	  <?php $_subcategories = $_category->getChildrenCategories() ?>
+            	<li>
+<a style="cursor: pointer;" href="<?php echo $this->getUrl('repair-it')?>">Repair It</a>
+                     <?php $_count = is_array($_subcategories)?count($_subcategories):$_subcategories->count(); ?>
+	    <ul id="abtNan">
+        <!--<h1>Full Service</h1>-->
+	      <?php foreach($_subcategories as $_subcategory): ?>
+          <?php if($_subcategory->getIsActive()): ?>
+
+<?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+
+<li><a href="<?php echo $_helper->getCategoryUrl($_subcategory) ?>"><?php echo $_subcategory->getName() ?>
+<?php if ($_subcategory->getName()=='Apple'): ?>
+        <span>IPhone to Macs</span>
+        <?php elseif ($_subcategory->getName()=='Cellphone'): ?>
+        <span>HTC to Samsung</span>
+         <?php elseif ($_subcategory->getName()=='PC Laptop'): ?>
+        <span>Dell to Toshiba</span>
+         <?php elseif ($_subcategory->getName()=='Game consoles'): ?>
+        <span>Xbox to Kindle</span>
+         <?php elseif ($_subcategory->getName()=='Handheld Tablet'): ?>
+        <span>Samsung to Kindle</span>
+        <?php endif; ?>
+    </a></li>
+
+<?php endif; ?>
+          <?php endforeach; ?>
+	      </ul>
+	    </li>
+         <?php endforeach; ?>
+<?php endif; ?> 
+        
+        
+	  <li><a href="<?php echo $this->getUrl('')?>">Insure It</a>
+      <ul id="abtNan">
+	<!--<h1>About us</h1>-->
+	<li><a href="#">iphones<span>iphone 3G to 5G</span></a></li>
+	<li><a href="#">ipads<span>ipad to ipad Mini</span></a></li>
+	<li><a href="#">Portables<span>ipods to GPS</span></a></li>
+	<li><a href="#">Computers<span>Macs to Dell</span></a></li>
+	<li><a href="#">Laptop<span>Macs to Dell</span></a></li>
+	<li><a href="#">Tablets<span>Kindle to Samsung</span></a></li>
+	<li><a href="#">Cell Phones<span>Samsung to HTC</span></a></li>
+	<li><a href="#">Appliances <span>Refrigerators to televisions </span></a></li>
+</ul>
+</li>
+		<li><a href="http://stores.ebay.com/bumblebee-wireless" target="_blank">Buy It</a></li>
+        <li><a href="<?php echo $this->getUrl('sell-it')?>">Sell It</a></li>
+        <li><a href="<?php echo $this->getUrl('unlock-mobile.html')?>">Unlock It</a></li>
+        <li><a href="<?php echo $this->getUrl('')?>">Bling It</a></li>
+        <li><a href="<?php echo $this->getUrl('')?>">Skin It</a></li>
+        <li><a href="<?php echo $this->getUrl('')?>">Prepay</a></li>
+        <li><a href="<?php echo $this->getUrl('Buzz')?>">Buzz</a></li>
+        <li><a href="<?php echo $this->getUrl('about')?>">About Us</a>
+        <ul id="abtNan">
+	<!--<h1>About us</h1>-->
+	<li><a href="<?php echo $this->getUrl('about-fullservice')?>">Full Service<span>What We Do</span></a></li>
+	<li><a href="<?php echo $this->getUrl('about-quality')?>">Quality<span>How We Do It</span></a></li>
+	<li><a href="<?php echo $this->getUrl('about-prices')?>">Prices<span>Best Value and Selection</span></a></li>
+	<li><a href="<?php echo $this->getUrl('about-credentials')?>">Credentials<span>Technician Certifications</span></a></li>
+	<li><a href="<?php echo $this->getUrl('contacts')?>">Contact Us<span>Have a Question or Comment</span></a></li>
+	<li><a href="#">Locations<span>Drop Off Repair Locations</span></a></li>
+	<li><a href="<?php echo $this->getUrl('about-faq')?>">FAQ's<span>Have a Questions or Concern</span></a></li>
+	<li><a href="#">Franchise Opportunity <span>Become a A20 Store Owner </span></a></li>
+</ul>
+</li>
+        <li class="last"><?php if($this->helper('checkout/cart')->getSummaryCount() > 0) { echo $this->helper('checkout/cart')->getSummaryCount(); } else { echo 0; } ?> item(s)-<?php $grandTotal = $this->helper('checkout/cart')->getQuote()->getGrandTotal();
+echo $text .= $this->__('%s', $this->helper('core')->formatPrice($grandTotal, false));?>
+<ul style="max-width:182px; text-indent:0px;">
+    <li style="max-width:170px; text-indent:0px;">
+   <?php echo $this->getChildHtml('topcart'); ?>
+</li>
+</ul></li>
+	</ul>
+</nav>
+            </section>
+            
+<select name="menu" onChange="window.location=this.value" id="topmenu">
+<option value="index.html">Home</option>
+<option value="category.html">Full Service</option>
+<option value="category.html">Insure It</option>
+</select>
+
+</section></section>

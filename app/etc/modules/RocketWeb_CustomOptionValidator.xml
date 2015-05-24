@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RocketWeb_CustomOptionValidator>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Catalog/>
+            </depends>
+        </RocketWeb_CustomOptionValidator>
+    </modules>
+</config>

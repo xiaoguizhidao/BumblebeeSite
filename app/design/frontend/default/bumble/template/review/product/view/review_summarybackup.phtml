@@ -1,0 +1,44 @@
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    var jQuery_1_8_3 = $.noConflict(true);
+</script>
+<?php 
+    $_items = $this->getReviewsCollection()->getItems();
+    if( count( $_items ) )
+    {
+		?>
+<div style="width:86%; padding: 6px; text-indent: 30px; margin:10px auto; ">  
+<span style="color:#000; font:bold 18px calibri; text-indent:42px; display:block;">What our customer say</span>
+
+<span style="font:italic 16px calibri; color:#666;  text-align:left;">
+
+<div id="refresh">
+<div style="background-image:url(<?php echo $this->getSkinUrl('images/cote.png')?>); background-repeat:no-repeat; margin:0px auto; width:83%; padding:11px; min-height:70px;" id="time">
+ <div id="message"></div>
+  </div></div>
+  </span>
+</div>
+ <script >
+	function nextMsg(i) {
+    if (messages.length == i) {
+        i = 0;
+    }
+    $('#message').html(messages[i]).fadeIn(500).delay(4000).fadeOut(500, function() {
+        nextMsg(i + 1);
+    });
+};
+
+var messages = [
+    <?php foreach( $_items as $_review ){?>
+   "<?php echo strip_tags($this->htmlEscape( $_review->getDetail() ));?>-<b><?php echo strip_tags($this->htmlEscape( $_review->getNickname() ));?></b>",
+    <?php }?>
+    ];
+
+$('#message').hide();
+
+nextMsg(0);
+	</script>
+
+ <?php } 
+?>
+   

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author		Sashas
+ * @category    Sashas
+ * @package     Sashas_Productlink
+ * @copyright   Copyright (c) 2013 Sashas IT Support Inc. (http://www.sashas.org)
+ * @license    http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+ */
+-->
+<config>
+    <modules>
+        <Sashas_Productlink>
+            <version>0.1.1</version>
+        </Sashas_Productlink>
+    </modules>
+ <global>
+        <blocks>
+        	<productlink>
+        		<class>Sashas_Productlink_Block</class>
+  			</productlink>
+ 			<adminhtml>
+ 				<rewrite>
+ 					<catalog_category_tab_product>Sashas_Productlink_Block_Adminhtml_Catalog_Category_Tab_Product</catalog_category_tab_product>
+ 				</rewrite> 			
+ 			</adminhtml>                  	
+        </blocks>   
+        <helpers>
+        	<productlink>
+        		<class>Sashas_Productlink_Helper</class>        		
+        	</productlink>
+        </helpers> 
+        <resources>
+            <productlink_setup>
+                <setup>
+                    <module>Sashas_Productlink</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </productlink_setup>
+            <productlink_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </productlink_write>
+            <productlink_read>
+                <connection> 
+                    <use>core_read</use>
+                </connection>
+            </productlink_read>
+       </resources>          
+  </global>
+</config>
+
+

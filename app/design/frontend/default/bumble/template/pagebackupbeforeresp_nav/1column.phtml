@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head')?>
+<?php /*?>    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.tooltipster.min.js')?>"></script>
+    <script>
+        $(document).ready(function() {
+            $('.tooltip').tooltipster();
+        });
+    </script><?php */?>
+</head>
+<body>
+<!--<body onLoad="setTimeout('window.close()', 10000);">
+--><section id="main_container">
+	<section id="contaner"><span>Bumblebee Wireless'' Leaders in Buying, Selling, Repairing and Customizing Handheld Electronics. | Click - Ship - Fix - Return</span>
+    <section class="top_link">
+    	<ul>
+       <li><?php if (Mage::getSingleton('customer/session')->isLoggedIn()==0): ?>
+<a href="<?php echo $this->getUrl('customer/account/login') ?>"><?php echo $this->__('Log In') ?></a>
+<?php else: ?>
+<a href="<?php echo $this->getUrl('customer/account/logout') ?>"><?php echo $this->__('Log Out') ?></a>
+<?php endif ?> </li>
+        <li><a href="<?php echo $this->getUrl('checkout')?>">Checkout</a></li>
+        <li><a href="<?php echo $this->getUrl('checkout/cart')?>">My Cart</a></li>
+        <li><a href="<?php echo $this->getUrl('customer/account/')?>">My Account</a></li>
+        </ul></section></section></section>
+        <section id="center_main_container">
+        <section id="center_container">
+        <?php echo $this->getChildHtml('header')?>
+<span class="clear"></span>
+<section id="banner_container">
+</section>
+<section id="center_mid_container">
+	<section id="category_container">
+                    	<!--<section class="category_heading"> <?php echo Mage::getSingleton('cms/page')->getTitle() ?></section>
+                         <section class="categorysub_heading">Click on your Manufacture Below</section>-->
+                        <section id="categorylist-container">
+<?php echo $this->getChildHtml('global_notices') ?>
+<?php echo $this->getChildHtml('global_messages') ?>
+<?php echo $this->getChildHtml('content') ?>   
+        </section>
+</section>
+</section>
+<?php echo $this->getChildHtml('footer')?>
+<?php echo $this->getChildHtml('before_body_end') ?>
+<?php echo $this->getAbsoluteFooter() ?>
+</section></section>
+</body>
+</html>

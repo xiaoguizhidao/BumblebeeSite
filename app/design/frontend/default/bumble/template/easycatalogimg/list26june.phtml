@@ -1,0 +1,87 @@
+<?php
+$_categories     = $this->getCategories();
+$_collectionSize = count($_categories);
+
+if (!$_collectionSize) :
+    return;
+endif;
+
+$columnsCount = $this->getColumnCount();
+$showImage    = $this->getShowImage();
+$height       = $this->getImageHeight();
+$width        = $this->getImageWidth();
+$maxCategoryCount    = $this->getCategoryCount();
+$maxSubcategoryCount = $this->getSubcategoryCount();
+$i = 0;
+?>
+
+<section id="category-listing">
+<ul>
+<?php foreach ($_categories as $_category) : ?>
+
+    <?php if ($i >= $maxCategoryCount): break; endif; ?>
+
+  
+    <li>
+        
+        <?php if ($showImage) : ?>
+        <?php if ($_category->getId()=='1262'):?>
+            <a href="http://bumblebeewireless.com/preview/apple-ipad-repair.html" title="<?php echo $this->htmlEscape($_category->getName()) ?>" class="product-image">
+                <?php if(!$resizeImage = $this->getResizeImage()): ?>
+                    <?php
+                        $style = '';
+                        if (!empty($width)):
+                            $style = 'width: ' . (is_numeric($width) ? $width . 'px' : $width);
+                        elseif (!empty($height)):
+                            $style = 'height: ' . (is_numeric($height) ? $height . 'px' : $height);
+                        endif;
+                    ?>
+                    <img src="<?php echo $this->getImage($_category) ?>" style="<?php echo $style ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" />
+                <?php else: ?>
+                    <img src="<?php echo Mage::helper('easycatalogimg/image')->resize($this->getImage($_category), $width, $height) ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" /><br/><span><?php echo $this->htmlEscape($_category->getName()) ?></span>
+                <?php endif; ?>
+            </a>
+            <?php elseif ($_category->getId()=='57'):?>
+            <a href="http://bumblebeewireless.com/preview/apple-iphone-repair.html" title="<?php echo $this->htmlEscape($_category->getName()) ?>" class="product-image">
+                <?php if(!$resizeImage = $this->getResizeImage()): ?>
+                    <?php
+                        $style = '';
+                        if (!empty($width)):
+                            $style = 'width: ' . (is_numeric($width) ? $width . 'px' : $width);
+                        elseif (!empty($height)):
+                            $style = 'height: ' . (is_numeric($height) ? $height . 'px' : $height);
+                        endif;
+                    ?>
+                    <img src="<?php echo $this->getImage($_category) ?>" style="<?php echo $style ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" />
+                <?php else: ?>
+                    <img src="<?php echo Mage::helper('easycatalogimg/image')->resize($this->getImage($_category), $width, $height) ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" /><br/><span><?php echo $this->htmlEscape($_category->getName()) ?></span>
+                <?php endif; ?>
+            </a>
+            <?php else :?>
+            <a href="<?php echo $_category->getUrl()?>" title="<?php echo $this->htmlEscape($_category->getName()) ?>" class="product-image">
+                <?php if(!$resizeImage = $this->getResizeImage()): ?>
+                    <?php
+                        $style = '';
+                        if (!empty($width)):
+                            $style = 'width: ' . (is_numeric($width) ? $width . 'px' : $width);
+                        elseif (!empty($height)):
+                            $style = 'height: ' . (is_numeric($height) ? $height . 'px' : $height);
+                        endif;
+                    ?>
+                    <img src="<?php echo $this->getImage($_category) ?>" style="<?php echo $style ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" />
+                <?php else: ?>
+                    <img src="<?php echo Mage::helper('easycatalogimg/image')->resize($this->getImage($_category), $width, $height) ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" /><br/><span><?php echo $this->htmlEscape($_category->getName()) ?></span>
+                <?php endif; ?>
+            </a>
+              <?php endif; ?>
+        <?php endif; ?>
+       
+    </li>
+
+   
+
+<?php endforeach; ?>
+</ul>
+</section>
+
+<script type="text/javascript">decorateGeneric($$('ul.category-grid'), ['odd','even','first','last'])</script>

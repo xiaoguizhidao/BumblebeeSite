@@ -1,0 +1,19 @@
+<?php $_cartdrop = Mage::getStoreConfig('cartdrop/general'); ?>
+<?php if($_cartdrop['enabled']==1): ?>
+<?php $_cartQty = Mage::getModel('checkout/cart')->getItemsQty(); ?>
+<?php if ($_cartQty > 0): ?>
+    <?php if ($_cartQty==1): ?>
+    <?php $_myCart = $this->__('Shopping Cart (<span>%s item</span>)', $_cartQty) ?>
+	<?php else: ?>	
+	<?php $_myCart = $this->__('Shopping Cart (<span>%s items</span>)', $_cartQty) ?>
+	<?php endif ?>
+<?php else: ?>
+    <?php $_myCart = $this->__('Shopping Cart (<span>0 item</span>)') ?>
+<?php endif ?>
+<div class="cartdrop">
+<span class="trigger"><a href="#" title="<?php echo $this->__('My Cart') ?>"><?php echo $_myCart ?></a></span>
+<div class="toggle_container" id="toggle_container" style="display:none">
+<?php echo $this->getChildHtml('cart_sidebar'); ?>
+</div>
+</div>
+<?php endif ?>

@@ -1,0 +1,22 @@
+ <?php 
+//get the specific category
+$_cat = Mage::getModel('catalog/category')->load(4); //category_id = your wished category to be displayed on the homepage.
+//get the children of the current category
+$subCats = Mage::getModel('catalog/category')->load($_cat->getId())->getChildren();
+//get sub category ids
+$subCatIds = explode(',',$subCats);
+?>
+
+<form method="post" >
+  <?php if (count($subCatIds) > 1): ?>
+  <select name="URL" onchange="[removed].href=this.form.URL.options[this.form.URL.selectedIndex].value">
+    <option>Select a sport</option>
+    <?php foreach($subCatIds as $subCatId): ?>
+    <?php $subCat = Mage::getModel('catalog/category')->load($subCatId); ?>
+    <?php if($subCat->getIsActive()): ?>
+    <option value="<?php echo $subCat->getUrl(); ?>"> <?php echo $subCat->getName(); ?> </option>
+    <?php endif; ?>
+    <?php endforeach; ?>
+  </select>
+  <?php endif; ?>
+</form> 

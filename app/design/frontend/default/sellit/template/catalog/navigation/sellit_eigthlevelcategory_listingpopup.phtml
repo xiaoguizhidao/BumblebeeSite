@@ -1,0 +1,142 @@
+<script type="text/javascript">
+			var link;
+			var element;
+			function openPopUp(url)
+			{
+				link = url;
+				element = document.getElementById("background");
+				element.style.display = "block";
+				element = document.getElementById("popup");
+				element.style.display = "block";
+			  
+			}
+
+			function closePopUp()
+			{
+				element = document.getElementById("popup");
+				element.style.display = "none";
+				element = document.getElementById("background");
+				element.style.display = "none";
+			}
+
+		</script>
+        <div style="width:100%; height:100%; padding: 0px; margin:0px; float:left; ">
+<section id="selectdevice">Select your <?php $level = $this->getCurrentCategory()->getParentCategory()->getLevel();
+if($level > 1){                 
+    echo $this->getCurrentCategory()->getParentCategory()->getName();
+    }
+    else{
+    echo $this->escapeHtml($_category->getName());
+    } ?> <?php echo Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName() ?> to sell.</section>
+ 	<div style="width:100%; height:50px; float:left;">
+		<div style="float:left;">
+		
+		<!-- Place the following code in the head section of your web page -->
+<!-- Place this code in the body section of your page -->
+<div id="link"><a href="javascript:openPopUp('')"><img src="<?php echo $this->getSkinUrl('close-div/images/question.png')?>" />&nbsp;<font style="color:#000; font-family:Helvetica; font-size:14px; position:relative; bottom:5px; width:100%;">
+<?php $level = $this->getCurrentCategory()->getParentCategory()->getLevel();
+if($level > 1){  ?>
+<?php 
+$shortname = Mage::getSingleton('catalog/layer')->getCurrentCategory()->getParentCategory()->getName();
+$arr= str_word_count($shortname,1,'&àáãç0123456789');
+if(in_array('iPhone',$arr)){
+echo "What's my iPhone's capacity?";
+}elseif (in_array('iPad',$arr)){
+echo "What's my iPad's capacity?";
+} elseif (in_array('Blackberry',$arr)){
+echo "What model Blackberry phone do I have?";
+} elseif (in_array('HTC',$arr)){
+echo "What model HTC phone do I have?";
+} elseif (in_array('LG',$arr)){
+echo "What model LG phone do I have?";
+} elseif (in_array('Motorola',$arr)){
+echo "What model Motorola phone do I have?";
+} elseif (in_array('Nokia',$arr)){
+echo "What model Nokia phone do I have?";
+} elseif (in_array('Samsung',$arr)){
+echo "What model Samsung phone do I have?";
+}elseif (in_array('Kindle',$arr)){
+echo "Which Kindle do I have?
+";
+}
+else {
+echo "Which model do I have?";
+	}
+							?>               
+<?php   // echo $this->getCurrentCategory()->getParentCategory()->getName();
+    }
+    else{
+    echo $this->escapeHtml($_category->getName());
+    } ?>  </font></a></div>
+    <div id="background" class="dimLayer"></div>
+    <div id="popup" class="popUpDisplay">
+		    <div class="popUpTitle">
+		    	<span onClick="closePopUp()"><img alt="Close Popup" src="<?php echo $this->getSkinUrl('images/remove.jpg')?>" width="14" height="14"/></span>
+		    </div>
+		    <div class="data">
+				<img src="<?php echo $this->getSkinUrl('images/questionmark.png')?>"> &nbsp;<strong>
+    <?php $level = $this->getCurrentCategory()->getParentCategory()->getLevel();
+if($level > 1){  ?>
+<?php 
+							$shortname = Mage::getSingleton('catalog/layer')->getCurrentCategory()->getParentCategory()->getName();
+							$arr= str_word_count($shortname,1,'&àáãç0123456789');
+if(in_array('iPhone',$arr)){
+echo "What's my iPhone's capacity?";
+}elseif (in_array('iPad',$arr)){
+echo "What's my iPad's capacity?";
+} elseif (in_array('Blackberry',$arr)){
+echo "What model Blackberry phone do I have?";
+} elseif (in_array('HTC',$arr)){
+echo "What model HTC phone do I have?";
+} elseif (in_array('LG',$arr)){
+echo "What model LG phone do I have?";
+} elseif (in_array('Motorola',$arr)){
+echo "What model Motorola phone do I have?";
+} elseif (in_array('Nokia',$arr)){
+echo "What model Nokia phone do I have?";
+} elseif (in_array('Samsung',$arr)){
+echo "What model Samsung phone do I have?";
+}elseif (in_array('Kindle',$arr)){
+echo "Which Kindle do I have?
+";
+}
+else {
+echo "Which model do I have?";
+	}
+							?>               
+<?php   // echo $this->getCurrentCategory()->getParentCategory()->getName();
+    }
+    else{
+    echo $this->escapeHtml($_category->getName());
+    } ?>
+    </strong><p style="height:8px;">&nbsp;</p><?php echo Mage::getSingleton('catalog/layer')->getCurrentCategory()->getDescription() ?>
+		    </div>
+		</div>
+    
+		</div>
+	</div>
+<?php
+$_categoriessub=$this->getCurrentChildCategories();
+if($_categoriessub->count()):
+$categorycount = 0;
+foreach ($_categoriessub as $_categorysub):
+if($_categorysub->getIsActive()):
+$cur_categorysub=Mage::getModel('catalog/category')->load($_categorysub->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_categorysub);
+$catName = $this->getCurrentCategory()->getName();
+?>
+	<div style="width:auto; height:auto; float:left; margin-right:10px;">
+		<div>
+		<a href="<?php echo $this->getCurrentCategory()->getUrl() ?>" <?php if ($this->isCategoryActive($cur_categorysub)): ?> class="active"<?php endif; ?> ><img src="<?php echo $this->getCurrentCategory()->getImageUrl() ?>" width="175" height="175" /></a>
+		</div>
+		<div style="width:100%; max-width:225px; font-family:Helvetica; font-size:14px; color:#333333; text-align:center;"> <?php echo $catName; ?></div>
+		<br />
+		<div><a href="<?php echo $this->getCurrentCategory()->getUrl() ?>"> <img src="<?php echo $this->getSkinUrl('close-div/images/offer.png')?>" /></a></div>
+	</div>
+<?php
+endif;
+endforeach;
+endif;
+?>		
+ </div>

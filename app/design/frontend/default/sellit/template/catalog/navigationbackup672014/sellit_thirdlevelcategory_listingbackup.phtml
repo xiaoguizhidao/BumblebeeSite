@@ -1,0 +1,102 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('close-div/jquery.min.js')?>"></script>
+
+<script type="text/javascript">
+
+ function showonlytwo(thechosenone) {
+
+     $('.newboxestwo').each(function(index) {
+
+          if ($(this).attr("id") == thechosenone) {
+
+               $(this).show(200);
+
+          }
+
+          else {
+
+               $(this).hide(200);
+
+          }
+
+     });
+
+}
+
+</script>
+<div class="list" style=" float:left;">
+
+<table width="100%" height="">
+<tr>
+
+<td style="vertical-align:top; float:left;">
+
+ 
+ <?php
+$_subcategories=$this->getCurrentChildCategories();
+if($_subcategories->count()):
+$categorycount = 0;
+$third=500;
+foreach ($_subcategories as $_subcategory):
+if($_subcategory->getIsActive()):
+$cur_category2nd=Mage::getModel('catalog/category')->load($_subcategory->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category2nd);
+$catName = $this->getCurrentCategory()->getName();
+$third++;
+?>
+ 
+ 
+ 
+         <div style="padding: 5px;  color:#4C4C4C; font-family:Helvetica; font-size:12px; font-weight:bold;  text-align:center; float:left; ">
+            <a id="myHeader1" href="javascript:showonlytwo('newboxestwo<?php echo $third;?>');" <?php if ($this->isCategoryActive($_subcategory)): ?> class="active"<?php endif; ?> >
+			
+				<img src="<?php echo $this->getCurrentCategory()->getImageUrl() ?>"  onclick="document.getElementById('p<?php echo $third;?>').style.display='none'"   /><br><?php echo $this->getCurrentCategory()->getName() ?>
+				
+			</a>
+         </div>
+		 
+	<?php
+endif;
+endforeach;
+endif;
+?>	
+		 
+		 
+<?php
+$_subcategories=$this->getCurrentChildCategories();
+if($_subcategories->count()):
+$categorycount = 0;
+$third=500;
+foreach ($_subcategories as $_subcategory):
+if($_subcategory->getIsActive()):
+$cur_category2nd=Mage::getModel('catalog/category')->load($_subcategory->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category2nd);
+$catName = $this->getCurrentCategory()->getName();
+$third++;
+?>		 
+		 
+         <div class="newboxestwo" id="newboxestwo<?php echo $third;?>" style=" display: none;padding: 5px; margin-top:0px; width: 1024px;  z-index:1111;"> 
+ <div style="width:1024px;">		
+
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sellit_fourthlevel_listing')->toHtml(); ?>
+
+</div> 
+
+</div>
+  
+<?php
+endif;
+endforeach;
+endif;
+?>	
+
+
+ 
+ </td>
+
+  
+
+ </tr>
+ </table>
+ </div>

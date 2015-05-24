@@ -1,0 +1,212 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+?>
+<table style="max-width:1024px; width:100%;">
+
+	<tr>
+
+	<td style="width:140px; vertical-align:top;">
+
+		<?php
+$layer = Mage::getSingleton('catalog/layer');
+$_category = $layer->getCurrentCategory();
+$banner = Mage::getModel('catalog/category')->load($_category->getId())->getImageUrl();
+if($banner) {
+?>
+<img src="<?php echo $banner; ?>"  width="133" height="128" />
+<?php } else { ?>
+<img src="<?php echo $this->getSkinUrl('images/16gb.png')?>"/>
+<?php } ?>
+
+	</td>
+
+	<td style="max-width:850px;  width:100%; vertical-align:top;">
+
+	<div style="font-family:Helvetica; font-size:32px; margin-top:10px;"><?php echo $this->getLayer()->getCurrentCategory()->getName() ?>
+
+	</div>
+
+	<div style="font-family:Helvetica; font-size:22px; margin-top:30px; color:#333333;">1. What shape is it in?
+
+	</div>
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+ <div id="tabvanilla" class="widget">
+
+
+
+            <ul class="tabnav">
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+    <?php $i++;?>
+       <li>
+
+					<a href="#popular<?php echo $i?>">
+
+						<div style="padding:5px 0px 0px 30px;" >
+
+							<font style="color:#eaba00; font-family:Helvetica; font-size:20px;"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></font><br />
+
+ 
+
+							<span style="color:#333; font-family:Helvetica; font-size:12px; font-size: 12px; display: block; padding-top: 27px;"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></span>
+
+						</div> 
+
+					</a>
+
+
+
+				</li>
+                
+              <div id="popular<?php echo $i?>" class="tabdiv">
+             <div style="max-width:800px; width:100%; height:100%;">
+
+					 <img src="<?php echo $this->getSkinUrl('images/line-'.$i.'.png')?>" />
+
+					 <div style="background:#f9f9f9; max-width:800px;  width:100%; height:150px;">
+
+					 	
+<?php echo  $_product->getDescription(); ?>
+					 
+
+					 </div>
+
+					 
+
+					 <div style="max-width:800px; width:100%; margin-top:20px; border:1px solid #333;">
+
+					 <center>
+
+					 		<div style="font-family:Helvetica; color:#8f8f8f; font-size:28px; padding-top:25px;">Your Bumblebee Offer</div>
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:56px; padding-top:25px;"><strong> <?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->
+     getCurrentCurrencyCode())->getSymbol().number_format($_product->getPrice(),2); ?></strong></div>
+
+							
+
+							<div style="padding-top:25px;"><img src="<?php echo $this->getSkinUrl('images/ad2box.png')?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')" style="cursor:pointer;"/> </div>
+
+							
+
+							<div style="font-family:Helvetica; color:#5c7d8d; font-size:18px; font-weight:bold; padding-top:25px; padding-left:30px; float:left;">Why sell to A20</div><br /><br />
+
+
+
+
+
+							
+
+							<div style="font-family:Helvetica; color:#666; font-size:48px; padding:25px 0; width:100%;">
+
+							
+
+								<table>
+
+									<tr>	
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px; ">
+
+											&bull;30 day offer guarantee<br />
+
+
+
+											&bull;Free shipping
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull;Fast payment
+
+<br />
+
+
+
+											&bull;Free data wipe
+
+										</td>
+
+										<td style="font-family:Helvetica; color:#666; font-size:14px; width:225px;  ">
+
+											&bull;Step by step updates<br />
+
+
+
+											&bull;No listing hassles
+
+										</td>
+
+									</tr>
+
+								</table>
+
+							
+
+							</div>
+
+							
+
+						</center>
+
+					 </div>
+
+					 
+
+					 </div>
+
+					 
+
+            </div>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+
+
+            </ul>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+</div>
+<?php endif; ?>
+
+</div>
+</td></tr></table>

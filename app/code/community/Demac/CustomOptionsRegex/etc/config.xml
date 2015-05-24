@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Demac_CustomOptionsRegex>
+            <version>0.1.0</version>
+        </Demac_CustomOptionsRegex>
+    </modules>
+    <global>
+        <blocks>
+            <!--Declare our block name-->
+            <demac_customoptionsregex>
+                <class>Demac_CustomOptionsRegex_Block</class>
+            </demac_customoptionsregex>
+            <!--Rewrite the adminhtml custom options block to add our new fields-->
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_edit_tab_options_option>Demac_CustomOptionsRegex_Block_Adminhtml_Catalog_Product_Edit_Tab_Options_Option</catalog_product_edit_tab_options_option>
+                    <catalog_product_edit_tab_options_type_text>Demac_CustomOptionsRegex_Block_Adminhtml_Catalog_Product_Edit_Tab_Options_Type_Text</catalog_product_edit_tab_options_type_text>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <resources>
+            <!--Setup information for our install script which will allow use to save and retrieve our new custom option attributes-->
+            <demac_customoptionsregex_setup>
+                <setup>
+                    <module>Demac_CustomOptionsRegex</module>
+                </setup>
+            </demac_customoptionsregex_setup>
+        </resources>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <!--Frontend layout declaration-->
+                <demac_customoptionsregex>
+                    <file>demac_customoptionsregex.xml</file>
+                </demac_customoptionsregex>
+            </updates>
+        </layout>
+    </frontend>
+</config>

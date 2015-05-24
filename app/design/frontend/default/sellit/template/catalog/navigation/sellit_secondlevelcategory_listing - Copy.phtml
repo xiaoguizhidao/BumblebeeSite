@@ -1,0 +1,278 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('close-div/jquery.min.js')?>"></script>
+
+<script type="text/javascript">
+
+ function showonlyone(thechosenone) {
+
+     $('.newboxes').each(function(index) {
+
+          if ($(this).attr("id") == thechosenone) {
+
+               $(this).show(200);
+
+          }
+
+          else {
+
+               $(this).hide(200);
+
+          }
+
+     });
+
+}
+
+</script>
+<style type="text/css">
+
+span.link {
+    	position: relative;
+}
+
+    span.link a span {
+    	display: none;
+		font: 12px "Arial",sans-serif !important;
+}
+
+span.link a:hover {
+    	font-size: 99%;
+    	font-color: #000000;
+}
+
+span.link a:hover span { 
+   display: block;
+position: absolute;
+margin-top: 0px;
+margin: 0px;
+width: 265px;
+padding: 15px;
+z-index: 100;
+color: #494949;
+background: none repeat scroll 0% 0% #fff;
+font: 12px "Arial",sans-serif;
+text-align: left;
+text-decoration: none;
+border: 2px solid #FCE63C;
+border-radius: 5px;
+}
+span.link a:hover span strong{
+	font-size:12px;
+}
+span.link a:hover span img{
+	vertical-align:middle;
+}
+#selectdevice {display:block; float:left; font-size:20px; margin:10px 0; color:333333;}
+</style>
+<style>
+.list
+{
+width:1050px; height:100%; margin:0px;
+}
+.list div a img
+{
+ transition: opacity .5s;
+-moz-transition: opacity .5s; /* Firefox 4 */
+-webkit-transition: opacity .5s; /* Safari and Chrome */
+-o-transition: opacity .5s; /* Opera */
+
+}
+.list:hover div a img
+{
+opacity:0.5; 
+}
+
+.list div a img:hover
+{transition: opacity .5s;
+-moz-transition: opacity .5s; /* Firefox 4 */
+-webkit-transition: opacity .5s; /* Safari and Chrome */
+-o-transition: opacity .5s; /* Opera */
+
+}
+.list div a img:hover{opacity:1;}
+.list div a.active{opacity:1 !important;}
+#subcateswitcher {margin:0px; padding:0px; padding-right:20px; float:left; text-align:center; font-weight:bold; color:#4C4C4C;}
+
+</style>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<div style="width:100%; display:block; margin:0px; float:left;">
+ 
+		<div style="float:left;">
+		<!-- Place the following code in the head section of your web page -->
+
+
+
+<!-- Place this code in the body section of your page -->
+<span class="link"><a href="javascript: void(0)">
+<?php if (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='Cell Phones'):?>
+<font style="color:#000; font-family:Helvetica; font-size:14px; position:relative; width:100%; display:block; margin-bottom:10px;">
+Which Brand Do I Have? </font>
+<?php elseif (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='Tablets'):?>
+<font style="color:#000; font-family:Helvetica; font-size:14px; position:relative; width:100%; display:block; margin-bottom:10px;">
+Which Brand Do I Have? </font>
+<?php elseif (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='Apple Computers'):?>
+<font style="color:#000; font-family:Helvetica; font-size:14px; position:relative; width:100%; display:block; margin-bottom:10px;">
+Which Brand Do I Have? </font>
+<?php elseif (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='iPads'):?>
+<font style="color:#000; font-family:Helvetica; font-size:14px; position:relative; width:100%; display:block; margin-bottom:10px;">
+Which iPad Do I Have? </font>
+<?php elseif (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='iPods'):?>
+<font style="color:#000; font-family:Helvetica; font-size:14px; position:relative; width:100%; display:block; margin-bottom:10px;">
+Which iPod Do I Have? </font>
+<?php else :?>
+<font style="color:#000; font-family:Helvetica; font-size:14px; position:relative; width:100%;">
+Which Model Do I Have? </font>
+<?php endif;?>   
+<?php if (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getDescription()!=''):?>
+
+
+<span><img src="<?php echo $this->getSkinUrl('images/questionmark.png')?>"> &nbsp;<strong>Which <?php if (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='Cell Phones'):?>
+Brand
+<?php elseif (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='Tablets'):?>
+Brand
+<?php elseif (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='Apple Computers'):?>
+Brand
+<?php elseif (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='iPads'):?>
+iPad
+<?php elseif (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='iPods'):?>
+iPod
+<?php else :?>
+Model
+<?php endif;?> Do I Have?</strong><p style="height:3px;">&nbsp;</p><?php echo Mage::getSingleton('catalog/layer')->getCurrentCategory()->getDescription() ?></span>
+
+
+<?php endif;?>
+</a></span>
+		</div>
+
+	</div>
+<div class="list" style=" float:left;">
+
+     <table width="100%" height="">
+
+<tr>
+
+ 
+
+<td style="vertical-align:top; float:left;">
+
+ 
+<?php
+$_categories=$this->getCurrentChildCategories();
+if($_categories->count()):
+$categorycount = 0;
+$cms=0;
+foreach ($_categories as $_category):
+if($_category->getIsActive()):
+$cur_category=Mage::getModel('catalog/category')->load($_category->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category);
+$catName = $this->getCurrentCategory()->getName();
+$cms++;
+
+?>
+         <div id="subcateswitcher">
+ <?php if (Mage::getSingleton('catalog/layer')->getCurrentCategory()->getName()=='Apple'):?>
+ 
+            <a href="<?php echo $this->getUrl('sell-my-ipad.html')?>" >
+
+				<img src="<?php echo $this->getCurrentCategory()->getImageUrl() ?>" style="margin:0px; padding:0px; "/><br><?php echo $this->getCurrentCategory()->getName() ?>
+		
+
+			</a>
+
+<?php else :?>
+
+<script>
+$('#subcateswitcher').click(function () {
+    $(this).siblings().find('#myHeader1').removeClass('active');
+    $(this).addClass('active');
+    $('> #myHeader1', this).addClass('active');
+});
+</script>
+<style>
+.vote-icon.active,.vote-icon.active{background-color:green;}
+#myHeader1.active,#myHeader1.active{color:red; opacity:1 !important; transition: opacity 1 !important;
+-moz-transition: opacity 1 !important; /* Firefox 4 */
+-webkit-transition: opacity 1 !important; /* Safari and Chrome */
+-o-transition: opacity 1 !important; /* Opera */}
+</style>
+<?php 
+$catnames=$this->getCurrentCategory()->getName();
+?>
+ <a id="myHeader1" href="#<?php echo $catnames = str_replace(' ', '', $catnames); ?>" onclick="javascript:showonlyone('newboxes<?php echo $cms;?>');" >
+<img src="<?php echo $this->getCurrentCategory()->getImageUrl() ?>" style="margin:0px; padding:0px;"/><br>
+<?php echo $this->getCurrentCategory()->getName() ?>
+			</a>
+<?php endif;?>
+         </div>
+
+
+<?php
+endif;
+endforeach;
+endif;
+?>		 
+
+		 <?php
+$_categories=$this->getCurrentChildCategories();
+if($_categories->count()):
+$categorycount = 0;
+$cms=0;
+foreach ($_categories as $_category):
+if($_category->getIsActive()):
+$cur_category=Mage::getModel('catalog/category')->load($_category->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category);
+$catName = $this->getCurrentCategory()->getName();
+$cms++;
+?>
+        
+<div class="newboxes" id="newboxes<?php echo $cms;?>" style="  display: none;  margin-top:0px; max-width: 1024px; width:100%; max-height:1100px; z-index:1111; "> 
+
+  <div style="max-width:1000px; width:100%; height:100%; padding: 0px; margin:0px; ">		
+
+<div style="width:100%; height:100%; padding: 0px; margin:0px; float:left; ">
+<?php $displayMode = $this->getCurrentCategory()->getDisplayMode();?>
+<?php if($displayMode == 'PAGE'):?>  
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sellit_thirdlevel_listing')->toHtml(); ?>
+<?php else: ?>
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sellit_eigthlevel_listing')->toHtml(); ?>
+<?php endif; ?>
+
+
+ </div>
+
+</div> 
+
+
+
+</div>
+
+<?php
+endif;
+endforeach;
+endif;
+?>		 
+
+         
+
+      
+
+	    
+
+ 
+
+ </td>
+
+
+
+  
+
+
+
+ </tr>
+
+ </table>               
+                    
+            </div>

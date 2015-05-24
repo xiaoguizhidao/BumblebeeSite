@@ -1,0 +1,123 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div id="footer_main_container">
+<a href="<?php echo $this->getUrl('faq')?>"><img src="<?php echo $this->getSkinUrl('images/whyshop.png')?>" alt=""></a>
+<!--<div id="why_shop_with_us_container"><img src="<?php echo $this->getSkinUrl('images/why_shop_with_us.png')?>" width="216" height="83"><div class="why_shop">
+	<ul>
+    	<li><a href="<?php echo $this->getUrl('certified-mac-technicians')?>">Certified Mac Technicians</a></li>
+        <li><a href="<?php echo $this->getUrl('quick-easy-shipping')?>">Quick & Easy Shipping</a></li>
+        <li><a href="<?php echo $this->getUrl('low-price-guarantee')?>">Low Price Guarantee</a></li>
+        <li><a href="<?php echo $this->getUrl('top-rated-customer-services')?>">Top Rated Customer Service</a></li>
+        <li><a href="<?php echo $this->getUrl('safe-secure-shipping')?>">Safe, Secure Shipping</a></li>
+        <li><a href="<?php echo $this->getUrl('top-rated-quality')?>">Top Rated Quality</a></li></ul>
+        
+        </div></div>--><div class="footer_container">
+        <div  class="footer_link_container">
+            	<div class="shop_heading">Services</div>
+                	<div class="footer_link">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('Services')->toHtml(); ?>
+        </div></div>
+        	<?php /*?><div  class="footer_link_container">
+            	<div class="shop_heading">Services</div>
+                	<div class="footer_link">
+                    <ul>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Apple Repair</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Laptop Repair</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Tablet Repair</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Cell Phone Repair</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Game Console Repair</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Sell your Gadget</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Protect your Gadget</a></li>
+                        <li><a href="<?php echo $this->getUrl('')?>">Unlock Your Phone</a></li></ul></div></div><?php */?>
+                        <div  class="footer_link_container">
+            	<div class="shop_heading">Shop</div>
+                	<div class="footer_link">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('Shop')->toHtml(); ?>
+                    </div>
+                    </div>
+                        <?php /*?><div  class="footer_link_container">
+            	<div class="shop_heading">Shop</div>
+                	<div class="footer_link">
+                    <ul>
+                    	<li><a href="<?php echo $this->getUrl('')?>">iPhone Accessories</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">iPod Accessories</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">iPad Accessories</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Tablet Accessories</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Samsumg Accessories</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Bling your Gadget</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Skin your Gadget</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Buy a Used Gadget</a></li></ul></div></div><?php */?><div class="footer_img"><img src="<?php echo $this->getSkinUrl('images/footer_img.png')?>" alt=""><!--We Cover all of the USA.--></div>
+						<div  class="footer_link_container">
+            	<div class="shop_heading">Connect</div>
+                	<div class="footer_link">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('Connect')->toHtml(); ?>
+                    </div></div>
+						<?php /*?><div  class="footer_link_container">
+            	<div class="shop_heading">Connect</div>
+                	<div class="footer_link">
+                    <ul>
+                    	<li><a href="https://www.facebook.com/" target="_blank">Like on Facebook</a></li>
+                    	<li><a href="https://twitter.com/" target="_blank">Follow Us on Twitter</a></li>
+                    	<li><a href="www.youtube.com/" target="_blank">youtube Channel</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Store Locations</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Franchise Opportunities</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Sell your Gadget</a></li>
+                    	<li><a href="<?php echo $this->getUrl('contacts')?>">Contact Us</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Write a Review</a></li></ul></div></div><?php */?>
+						<div  class="footer_link_container">
+            	<div class="shop_heading">Help</div>
+                	<div class="footer_link">
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('Help')->toHtml(); ?>
+                        </div>
+                        </div>
+						<?php /*?><?php /*?><div  class="footer_link_container">
+            	<div class="shop_heading">Help</div>
+                	<div class="footer_link">
+                    <ul>
+                    	<li><a href="<?php echo $this->getUrl('about')?>">About Us</a></li>
+                    	<li><a href="<?php echo $this->getUrl('terms')?>">Terms & Conditions</a></li>
+                    	<li><a href="<?php echo $this->getUrl('')?>">Customer Reviews</a></li>
+                    	<li><a href="<?php echo $this->getUrl('warranty')?>">Warranty Policy</a></li>
+                    	<li><a href="<?php echo $this->getUrl('return')?>">Return Policy</a></li>
+                    	<li><a href="<?php echo $this->getUrl('faq')?>">FAQ's</a></li>
+                    	<li><a href="<?php echo $this->getUrl('contacts')?>">Contact Us</a></li>
+                    	<li><a href="<?php echo $this->getUrl('sitemap')?>">Sitemap</a></li></ul></div></div><?php */?></div>
+                        <div class="copy_right">Bumblebee Wireless&trade; Leaders in Buying, Selling, Repairing and Customizing Wireless Technologies | <a href="<?php echo $this->getUrl('trade-in-gadgets')?>">Click - Ship</a> - <a href="<?php echo $this->getUrl('repair-it')?>">Fix - Return&trade;</a></div></div>
+                        
+                        
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('popluar-searches')->toHtml(); ?>
+                        
+                        <!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){
+z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+$.src='//v2.zopim.com/?2bxp0AtPMpMuqCdKI2SRPICT2BskkYRX';z.t=+new Date;$.
+type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+</script>
+<!--End of Zopim Live Chat Script-->

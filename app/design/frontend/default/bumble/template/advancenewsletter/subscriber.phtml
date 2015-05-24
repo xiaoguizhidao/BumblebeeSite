@@ -1,0 +1,229 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<style>
+.newpage_text2 {margin-top:0px !important;}
+</style>
+<?php  $prefix= Mage::getStoreConfig('advancenewsletter/all_settings/prefix_show');
+       $firstname= Mage::getStoreConfig('advancenewsletter/all_settings/firstname_show');
+       $lastname= Mage::getStoreConfig('advancenewsletter/all_settings/lastname_show');
+       $confirmmail=Mage::getStoreConfig('advancenewsletter/all_settings/confirmemail_show');
+       $company= Mage::getStoreConfig('advancenewsletter/all_settings/company_show');
+       $address= Mage::getStoreConfig('advancenewsletter/all_settings/address_show');
+       $city= Mage::getStoreConfig('advancenewsletter/all_settings/city_show');
+       $state= Mage::getStoreConfig('advancenewsletter/all_settings/state_show');
+       $country= Mage::getStoreConfig('advancenewsletter/all_settings/country_show');
+       $fax= Mage::getStoreConfig('advancenewsletter/all_settings/fax_show');
+       $phoneno= Mage::getStoreConfig('advancenewsletter/all_settings/phoneno_show');
+       $zipcode= Mage::getStoreConfig('advancenewsletter/all_settings/zipcode_show'); 
+       $no_of_line= Mage::getStoreConfig('advancenewsletter/all_settings/lines_in_address_show');?>
+
+
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+
+<section class="page_main_container">
+<section class="page_left_side">
+<section class="newpage_heading">Newsletter - Join the Swarm</section>
+<section class="newpage_text">To get latest updates on the hottest wireless gadgets before their released and sweet deals</section>
+<section class="newpageform_container">
+                           <?php if($prefix): ?>
+                      <section class="newpage_text2" for="salutation"><?php echo $this->__('Prefix') ?></section>
+                          <select name="salutation" id="prefix">
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Ms">Ms</option>
+                         </select>
+                <?php endif;?>
+                <?php if($firstname=="opt"):?>
+                           <section class="newpage_text2" for="firstname"><?php echo $this->__('First Name') ?></section> <span><img src="<?php echo $this->getSkinUrl('images/contactstar.jpg')?>" width="18" height="11">indicates required</span>
+                               <input type="text" name="firstname" id="advancenewsletter" title="<?php echo $this->__('First name') ?>" class="contactfld" />
+                <?php elseif($firstname=="req"):?>
+                            <section class="newpage_text2" for="firstname"><?php echo $this->__('First Name') ?></section> <span><img src="<?php echo $this->getSkinUrl('images/contactstar.jpg')?>" width="18" height="11">indicates required</span>
+                                <input type="text" name="firstname" id="advancenewsletter" title="<?php echo $this->__('First name') ?>" class="contactfld required-entry" />
+                <?php endif;?>
+                <?php if($lastname=="opt"):?>
+                          <section class="newpage_text2" for="lastname"><?php echo $this->__('Last Name') ?></section>
+                              <input type="text" name="lastname" id="advancenewsletter" title="<?php echo $this->__('Last name') ?>" class="contactfld" />
+                 <?php elseif($lastname=="req"):?>
+                           <section class="newpage_text2" for="lastname"><?php echo $this->__('Last Name') ?></section>
+                              <input type="text" name="lastname" id="advancenewsletter" title="<?php echo $this->__('Last name') ?>" class="contactfld required-entry" />
+                 <?php endif;?>
+                 <section class="newpage_text2" for="email"><?php echo $this->__('Email') ?></section>    
+                 <input type="text" name="email" id="advancenewsletter" title="<?php echo $this->__('Email Id') ?>" class="contactfld required-entry validate-email" />
+                 <?php if($confirmmail):?>
+                       <section class="newpage_text2" for="confirmemail"><?php echo $this->__('Confirm Email') ?></section>    
+                           <input type="text" name="email" id="advancenewsletter" title="<?php echo $this->__('Confirm Email Id') ?>" class="contactfld required-entry validate-cemail" />
+                 <?php endif;?>
+                 <?php if($company=="opt"):?>
+                           <section class="newpage_text2" for="company"><?php echo $this->__('Company') ?></section>
+                              <input type="text" name="company" id="advancenewsletter" title="<?php echo $this->__('Company') ?>" class="contactfld" />
+                 <?php elseif ($company=="req"):?>
+                          <section class="newpage_text2" for="company"><?php echo $this->__('Company') ?></section>
+                             <input type="text" name="company" id="advancenewsletter" title="<?php echo $this->__('Company') ?>" class="contactfld required-entry" />
+                 <?php endif;?>
+                 <?php if($address=="opt"):?>
+                          <section class="newpage_text2" for="address"><?php echo $this->__('Address') ?></section>
+                                        <input type="text" name="address" id="advancenewsletter" title="<?php echo $this->__('Address') ?>" class="contactfld" />
+                <?php elseif($address=="req"):?>
+                            <section class="newpage_text2" for="address"><?php echo $this->__('Address') ?></section>
+                                          <input type="text" name="address" id="advancenewsletter" title="<?php echo $this->__('Address') ?>" class="contactfld required-entry" />   
+                 <?php endif;?>
+                 <?php if($city=="opt"): ?>
+                           <section class="newpage_text2" for="city"><?php echo $this->__('City') ?></section>
+                              <input type="text" name="city" id="advancenewsletter" title="<?php echo $this->__('City') ?>" class="contactfld" />
+                <?php elseif($city=="req"): ?>
+                          <section class="newpage_text2" for="city"><?php echo $this->__('City') ?></section>
+                              <input type="text" name="city" id="advancenewsletter" title="<?php echo $this->__('City') ?>" class="contactfld required-entry" />
+                <?php endif;?>
+                <?php if(($state=="opt")&&($country!="")):?>
+                          <section class="newpage_text2" for="state"><?php echo $this->__('State/Province') ?></section>
+                          <select name="state-dropdown"  id="region_id" onselect="setvalue();" title="<?php echo $this->__('State/Province') ?>" style="display:none;">
+                                   <option value=""><?php echo $this->__('Please select state/province') ?></option>
+                              </select>
+                       <script type="text/javascript">
+                       //<![CDATA[
+                              $('region_id').setAttribute('defaultValue',  "<?php echo $this->getRegionId() ?>");  
+                       //]]>
+                        jQuery.noConflict();
+                           jQuery(document).ready(function(){
+                                 jQuery('#region_id').removeClass('validate-select');
+                                 jQuery('#region_id').removeClass('required-entry');
+                            });
+                             jQuery(document).ready(function(){
+                            jQuery("#country").change(function() {
+                                jQuery('#region_id').removeClass('validate-select');
+                                 jQuery('#region_id').removeClass('required-entry');
+                            });
+                            });
+                       </script>
+                          <input type="hidden" id="hidden-id" name="hidden-name" value="" />
+                       <input type="text" id="region" name="state-text" value="<?php echo $this->escapeHtml($this->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="contactfld" style="display:none;" />
+                <?php elseif(($state=="req")&&($country!="")):?>
+                           <section class="newpage_text2" for="state"><?php echo $this->__('State') ?></section>
+                             <select name="state-dropdown-req" id="region_id" title="<?php echo $this->__('State') ?>" style="display:none;" class="validate-select">
+                                   <option value=""><?php echo $this->__('Please select state') ?></option>
+                              </select>
+                       <script type="text/javascript">
+                       //<![CDATA[
+                           $('region_id').setAttribute('defaultValue',  "<?php echo $this->getRegionId() ?>");
+                       //]]>
+                        
+                       </script>
+                       <input type="hidden" id="hidden-id" name="hidden-name" value="" />
+                       <input type="text" id="region" name="state-text-req" value="<?php echo $this->escapeHtml($this->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>"  style="display:none;" />
+                       <script type="text/javascript">
+                           jQuery.noConflict();
+                           jQuery(document).ready(function(){
+                                 jQuery('#region').addClass('contactfld');
+                                 jQuery('#region').addClass('required-entry');
+                           
+                            });
+                            jQuery(document).ready(function(){
+                            jQuery("#country").change(function() {
+                                jQuery('#region').addClass('contactfld');
+                                 jQuery('#region').addClass('required-entry');
+                            });
+                            });
+                       </script>
+                  <?php elseif(($state=="opt")&&($country=="")):?>
+                        <section class="newpage_text2" for="state"><?php echo $this->__('State') ?></section>
+                            
+                            <input type="text" id="region" name="hidden-name" value="<?php echo $this->escapeHtml($this->getRegion()) ?>"  title="<?php echo $this->__('State') ?>"  />  
+                 <?php elseif(($state=="req")&&($country=="")):?>
+                        <section class="newpage_text2" for="state"><?php echo $this->__('State') ?></section>
+                       
+                       <input type="text" id="region" name="hidden-name" value="<?php echo $this->escapeHtml($this->getRegion()) ?>"  title="<?php echo $this->__('State') ?>"  class="contactfld required-entry" />  
+                <?php endif;?> 
+                <?php if ($country=="opt"): ?>
+                           <section class="newpage_text2" for="country"><?php echo $this->__('Country') ?></section>
+                                <?php echo Mage::getBlockSingleton('directory/data')->getCountryHtmlSelect($this->getCountryId()) ?>
+                           <script type="text/javascript">
+                                jQuery(document).ready(function(){
+                                 jQuery("#country").change(function() {
+                                     jQuery('#country').removeClass('validate-select');
+                                      jQuery('#country').removeClass('required-entry');
+                                 });
+                                 });
+                            </script>
+                <?php elseif($country=="req"):?>
+                          <section class="newpage_text2" for="country"><?php echo $this->__('Country') ?></section>
+                                <?php echo Mage::getBlockSingleton('directory/data')->getCountryHtmlSelect($this->getCountryId()) ?>  
+                <?php endif; ?>
+                <?php if($fax=="opt"):?>
+                          <section class="newpage_text2" for="fax"><?php echo $this->__('Fax') ?></section>
+                             <input type="text" name="fax" id="advancenewsletter" title="<?php echo $this->__('Fax') ?>" class="contactfld" />
+                 <?php elseif($fax=="req"):?>
+                           <section class="newpage_text2" for="fax"><?php echo $this->__('Fax') ?></section>
+                             <input type="text" name="fax" id="advancenewsletter" title="<?php echo $this->__('Fax') ?>" class="contactfld required-entry" />
+                 <?php endif;?>
+                 <?php if($phoneno=="opt"):?>
+                     <section class="newpage_text2" for="phoneno"><?php echo $this->__('Phone Number') ?></section>
+                        <input type="text" name="phoneno" id="advancenewsletter" title="<?php echo $this->__('Phone Number') ?>" class="contactfld validate-number" />
+                <?php elseif($phoneno=="req"):?>
+                           <section class="newpage_text2" for="phoneno"><?php echo $this->__('Phone Number') ?></section>
+                        <input type="text" name="phoneno" id="advancenewsletter" title="<?php echo $this->__('Phone Number') ?>" class="contactfld required-entry validate-number" />
+                <?php endif;?>
+                <?php if($zipcode=="opt"):?>
+                         <section class="newpage_text2" for="zipcode"><?php echo $this->__('Zip/Postal Code') ?></section>
+                            <input type="text" name="zipcode" id="advancenewsletter" title="<?php echo $this->__('Zip/Postal Code') ?>" class="contactfld" />
+                 <?php elseif($zipcode=="req"):?>
+                          <section class="newpage_text2" for="zipcode"><?php echo $this->__('Zip/Postal Code') ?></section>
+                            <input type="text" name="zipcode" id="advancenewsletter" title="<?php echo $this->__('Zip/Postal Code') ?>" class="contactfld required-entry" />
+                 <?php endif;?>   
+            
+
+                <button type="submit" onclick="showtest()" title="<?php echo $this->__('Subscribe') ?>" class="submit_botn"><?php echo $this->__('Subscribe') ?></button>
+       
+       
+       
+       </section>
+
+       </section>
+<section class="right_img"><img src="<?php echo $this->getSkinUrl('images/img1.jpg')?>"></section>
+</section>
+    </form>
+    <script type="text/javascript">
+        function showtest(){ 
+            jQuery.noConflict();
+        
+         if(jQuery("#region_id").css('display') == 'none')
+          {
+              document.getElementById("hidden-id").value=document.getElementById("region").value;
+          }
+          else
+              {
+                  document.getElementById("hidden-id").value=document.getElementById("region_id").value;
+              }
+        }
+    //<![CDATA[
+        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+    //]]>
+        new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>);
+    </script>
+</div>
+
+
+ 

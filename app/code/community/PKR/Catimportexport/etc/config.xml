@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <modules>
+    <PKR_Catimportexport>
+      <version>0.1.0</version>
+    </PKR_Catimportexport>
+  </modules>
+  <global>
+    <helpers>
+      <catimportexport>
+        <class>PKR_Catimportexport_Helper</class>
+      </catimportexport>
+    </helpers>
+    <blocks>
+    	<catimportexport>
+    		<class>PKR_Catimportexport_Block</class>
+    	</catimportexport>
+    </blocks>
+    <models>
+    	<catimportexport>
+    		<class>PKR_Catimportexport_Model</class>
+    	</catimportexport>
+    </models>
+  </global>
+  <admin>
+	<routers>
+		<catimportexport>
+			<use>admin</use>
+			<args>
+				<module>PKR_Catimportexport</module>
+				<frontName>catimportexport</frontName>
+			</args>
+		</catimportexport>
+	</routers>
+   </admin>
+
+	<adminhtml>
+		<layout>
+			<updates>
+				<catimportexport>
+					<file>catimportexport.xml</file>
+				</catimportexport>
+			</updates>
+		</layout>
+	</adminhtml>
+</config>

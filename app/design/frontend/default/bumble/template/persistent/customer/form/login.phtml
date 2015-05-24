@@ -1,0 +1,121 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see app/design/frontend/base/default/template/customer/form/login.phtml
+ */
+/** @var $this Mage_Customer_Block_Form_Login */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="account-login">
+    <div class="page-title">
+       <!-- <h1>&nbsp;</h1>-->
+    </div>
+<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+<?php echo $this->getBlockHtml('formkey'); ?>
+<h2 id="helper"><a href="<?php echo $this->getUrl('help-centers')?>">Help</a> | 
+<!-- SMARTADDON BEGIN -->
+<script type="text/javascript">
+(function() {
+var s=document.createElement('script');s.type='text/javascript';s.async = true;
+s.src='http://s1.smartaddon.com/share_addon.js';
+var j =document.getElementsByTagName('script')[0];j.parentNode.insertBefore(s,j);
+})();
+</script>
+
+<a href="http://www.smartaddon.com/?share" title="Share Button" onclick="return sa_tellafriend('http://bumblebeewireless.com/preview','email')">Share</a>
+<!-- SMARTADDON END -->
+<?php /*?><script type="text/javascript">
+(function() {
+var s=document.createElement('script');s.type='text/javascript';s.async = true;
+s.src='http://s1.smartaddon.com/share_addon.js';
+var j =document.getElementsByTagName('script')[0];j.parentNode.insertBefore(s,j);
+})();
+</script>
+
+<a href="http://www.smartaddon.com/?share" title="Share Button" onclick="return sa_tellafriend('','email')"><img alt="Share" src="http://s1.smartaddon.com/s13.png" border="0" /></a>
+<!-- SMARTADDON BEGIN --><?php */?>
+<?php /*?><script type="text/javascript">
+(function() {
+var s=document.createElement('script');s.type='text/javascript';s.async = true;
+s.src='http://s1.smartaddon.com/share_addon.js';
+var j =document.getElementsByTagName('script')[0];j.parentNode.insertBefore(s,j);
+})();
+</script>
+
+<a href="http://www.smartaddon.com/?share" title="Share Button" onclick="return sa_tellafriend('http://bumblebeewireless.com/preview','email')"><img alt="Share" src="http://s1.smartaddon.com/s13.png" border="0" style="vertical-align:bottom;" /></a>
+<!-- SMARTADDON END --><?php */?>
+<?php /*?><script type="text/javascript">
+(function() {
+var s=document.createElement('script');s.type='text/javascript';s.async = true;
+s.src='http://s1.smartaddon.com/share_addon.js';
+var j =document.getElementsByTagName('script')[0];j.parentNode.insertBefore(s,j);
+})();
+</script>
+<a href="http://www.smartaddon.com/?share" title="Share Button" onclick="return sa_tellafriend('http://bumblebeewireless.com/preview','email')">Refer a Friend</a><?php */?>
+| <a href="<?php echo $this->getUrl('The-Buzz')?>">Blog</a></h2>
+             <div class="col-2 registered-users">
+                <div class="content">
+                    <h2 style="color:#000; font: bold 18px/20px arial;"><?php echo $this->__('Returning Customers') ?></h2>
+                    <p><?php echo $this->__('Already have an account? Quickly login by entering your email login below') ?></p>
+                    <ul class="form-list">
+                        <li>
+                            <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo $this->__('Email Address') ?>" />
+                            </div>
+                        </li>
+                        <li>
+                            <label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+                            <div class="input-box">
+                                <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+                            </div>
+                        </li>
+                        
+                    <button type="submit" class="button" title="<?php echo $this->__('Login') ?>" name="send" id="send2" style="float:right !important; padding-top:15px;"><span><span><?php echo $this->__('Login') ?></span></span></button>
+               
+                        <?php echo $this->getChildHtml('form.additional.info'); ?>
+                        <?php echo $this->getChildHtml('persistent.remember.me'); ?>
+                        <a href="<?php echo $this->getUrl('customer/account/forgotpassword/')?>" style="float:right; font: 13px calibri; text-decoration:underline;"><?php echo $this->__('Forgot your password?') ?></a>
+                    </ul>
+                    <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
+                    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+                </div>
+            </div>
+             
+        <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
+            <input name="context" type="hidden" value="checkout" />
+        <?php endif; ?>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('login-form', true);
+    //]]>
+    </script>
+</div>

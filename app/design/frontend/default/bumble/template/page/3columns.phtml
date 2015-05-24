@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+<?php echo $this->getChildHtml('head')?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery-1.10.2.js')?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/homehead.js')?>"></script>
+<script src="<?php echo $this->getSkinUrl('js/jquery-1.7.1.min.js')?>"></script>
+<script src="<?php echo $this->getSkinUrl('js/jquery.min.js')?>"></script>
+<script src="<?php echo $this->getSkinUrl('js/bjqs-1.3.min.js')?>"></script>
+<link href="<?php echo $this->getSkinUrl('css/jquery.bxscroller.css')?>" rel="stylesheet" />
+<script src="<?php echo $this->getSkinUrl('js/jquery.bxslider.js')?>"></script>
+<script type="text/javascript">
+var $ = jQuery.noConflict();
+$(document).ready(function(){
+  $('.slider1').bxSlider({
+    slideWidth:195,
+    minSlides: 1,
+    maxSlides: 4,
+    slideMargin:6,
+	infiniteLoop: false,
+	hideControlOnEnd: false,
+	wrapperClass: 'bx-wrappers',
+	auto: false
+  });
+});
+</script>
+<style>
+#center_mid_container {margin-top:0px;}
+</style>
+<!-- SmartAddon.com Verification --> 
+<meta name="smartaddon-verification" content="28e5d9958f5359e46ea056ecb6684485" />
+</head>
+<body>
+<div id="main_container">
+	<div id="contaner"><span>Bumblebee Wireless&trade; Leaders in Buying, Selling, Repairing and Customizing Wireless Technologies. | <a href="<?php echo $this->getUrl('trade-in-gadgets')?>">Click - Ship </a> <a href="<?php echo $this->getUrl('repair-it')?>">- Fix - Return&trade;</a></span>
+    <div class="top_link">
+    	<ul>
+        <li><?php if (Mage::getSingleton('customer/session')->isLoggedIn()==0): ?>
+<a href="<?php echo $this->getUrl('customer/account/login') ?>"><?php echo $this->__('Log In') ?></a>
+<?php else: ?>
+<a href="<?php echo $this->getUrl('customer/account/logout') ?>"><?php echo $this->__('Log Out') ?></a>
+<?php endif ?> </li>
+        <li><a href="<?php echo $this->getUrl('onepagecheckout')?>">Checkout</a></li>
+        <li><a href="<?php echo $this->getUrl('checkout/cart')?>">My Cart</a></li>
+        <li><a href="<?php echo $this->getUrl('customer/account/')?>">My Account</a></li>
+        </ul></div></div></div>
+        <div id="center_main_container">
+        <div id="center_container">
+        <?php echo $this->getChildHtml('header')?>
+<span class="clear"></span>
+
+<?php      $_base_url = $this->helper('core/url')->getHomeUrl();
+                $class = str_replace($_base_url, '', $this->helper('core/url')->getCurrentUrl());
+                $pagetitle = str_replace('.html', '', $class);
+                $page = str_replace('industries/', '', $pagetitle);
+				if($page=="home/"){
+                ?>
+<div id="banner_container">
+<div id="banner-fade">
+        
+    </div>
+</div>
+<div id="center_mid_container" style="margin-bottom:-1px; padding:0px !important; max-width:1024px;">
+     <?php }elseif($page==""){?>
+  <div id="banner_container">
+<div id="banner-fade">
+ <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('homepage-banners')->toHtml(); ?>
+    </div>
+</div>
+<div id="center_mid_container" style="margin-bottom:-1px; padding:0px !important;  max-width:1024px;">
+    <?php }elseif($page=="index.php"){?>
+  <div id="banner_container">
+<div id="banner-fade">
+         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('homepage-banners')->toHtml(); ?>
+    </div>
+</div>
+<div id="center_mid_container" style="margin-bottom:-1px; padding:0px !important;  max-width:1024px;">
+	 <?php }else{ ?>   
+     <div id="center_mid_containerother">
+    <?php }?>
+
+<div id="left_menu_container">
+	<?php echo $this->getChildHtml('left')?>
+    </div>
+<div id="right_side_container">
+<div class="products_heading">Or Choose From Our Most Popular Bee Squad&trade; Certified Repairs</div>
+<div class="slider1" style="margin:2px 0">
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('most-popular')->toHtml(); ?>
+</div>                     
+</div></div>
+<?php echo $this->getChildHtml('footer')?>
+<?php echo $this->getChildHtml('before_body_end') ?>
+<?php echo $this->getAbsoluteFooter() ?>
+</div></div>
+<script class="secret-source">
+jQuery(document).ready(function($) {
+
+          $('#banner-fade').bjqs({
+            height      : 350,
+            width       : 1024,
+            responsive  : true
+          });
+
+        });
+</script>
+</body>
+</html>

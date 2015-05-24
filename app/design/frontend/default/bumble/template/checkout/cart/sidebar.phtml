@@ -1,0 +1,81 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+
+?>
+<?php if ($this->getIsNeedToDisplaySideBar()):?>
+<div class="block block-cart">
+    <?php $_cartQty = $this->getSummaryCount() ?>
+    <div class="block-content">
+    <?php if ($_cartQty>0): ?>
+        <div class="summary">
+            <?php if ($_cartQty==1): ?>
+                <p class="amount"><?php echo $this->__('1 item  added to your shopping cart', $this->getUrl('checkout/cart')) ?></p>
+            <?php else: ?>
+                <p class="amount"><?php echo $this->__('<a href="%s">%s </a> items added to your shopping cart', $this->getUrl('checkout/cart'), $_cartQty) ?></p>
+            <?php endif ?>
+        </div>
+    <?php endif ?>
+    
+    
+    
+    <?php $_items = $this->getRecentItems() ?>
+    <?php if(count($_items)): ?>
+        <p class="block-subtitle">Qty <strong style="text-indent:3px;  display:inline-block;">Product</strong> <strong style="text-indent:85px;  display:inline-block;">Price</strong></p>
+        <ol id="cart-sidebar" class="mini-products-list">
+        <?php foreach($_items as $_item): ?>
+            <?php echo $this->getItemHtml($_item) ?>
+        <?php endforeach; ?>
+        </ol>
+        <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
+    <?php else: ?>
+        <p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+    <?php endif ?>
+    <div class="subtotalmini">
+        <?php if ($this->canApplyMsrp()): ?>
+                    <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+                <?php else: ?>
+                    <h3><?php echo $this->__('Subtotal:') ?> <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></h3>
+                    <?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
+                        <br />(<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?>)
+                    <?php endif; ?>
+                <?php endif; ?>
+    </div>
+    <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+    <div class="actions">
+     <p style="float:left; padding-top:3px;"><a href="<?php echo $this->getUrl('')?>" style="color:#000 !important; text-transform:uppercase !important; font-weight:bold; font-size:14px;  text-decoration:none; padding-top:7px !important; text-indent:0 !important;">Keep Shopping</a></p>
+        <?php echo $this->getChildHtml('extra_actions') ?>
+        <p style="float:right;"><a onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')" style="cursor:pointer;"><img src="<?php echo $this->getSkinUrl('images/minicheckout.png')?>"></a></p>
+    </div>
+    <?php endif ?>
+    </div>
+</div>
+<?php endif;?>

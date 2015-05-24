@@ -1,0 +1,37 @@
+<?php
+$_categoriessub=$this->getCurrentChildCategories();
+if($_categoriessub->count()):
+$categorycount = 0;
+foreach ($_categoriessub as $_categorysub):
+if($_categorysub->getIsActive()):
+$cur_categorysub=Mage::getModel('catalog/category')->load($_categorysub->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_categorysub);
+$catName = $this->getCurrentCategory()->getName();
+?>
+	
+
+	
+
+	<div style="width:auto; height:auto; float:left; margin-right:10px;">
+
+		<div>
+
+		<img src="<?php echo $this->getSkinUrl('close-div/images/big-16gb.png')?>" />
+
+		</div>
+
+		<div style="width:auto; font-family:Helvetica; font-size:14px; color:#333333;"> iPhone 4S 16GB (AT&T /Unlocked)</div>
+
+		<br />
+
+		<div><a href="#"> <img src="<?php echo $this->getSkinUrl('close-div/images/offer.png')?>" /></a></div>
+
+	</div>
+    
+    
+<?php
+endif;
+endforeach;
+endif;
+?>		

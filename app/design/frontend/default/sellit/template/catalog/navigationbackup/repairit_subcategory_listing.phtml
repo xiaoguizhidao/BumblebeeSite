@@ -1,0 +1,24 @@
+<section id="category-listing">
+<ul>
+<?php
+$_categories=$this->getCurrentChildCategories();
+if($_categories->count()):
+$categorycount = 0;
+foreach ($_categories as $_category):
+if($_category->getIsActive()):
+$cur_category=Mage::getModel('catalog/category')->load($_category->getId());
+$layer = Mage::getSingleton('catalog/layer');
+$layer->setCurrentCategory($cur_category);
+$catName = $this->getCurrentCategory()->getName();
+?>
+       
+				<li><a href="<?php echo $_category->getURL() ?>"><img src="<?php echo $this->getCurrentCategory()->getImageUrl() ?>" style="margin:0px; padding:0px; "/><br/><span><?php echo $this->htmlEscape($_category->getName()) ?></span></a></li>
+
+				
+
+<?php
+endif;
+endforeach;
+endif;
+?>		 
+</ul></section>

@@ -1,0 +1,98 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('close-div/jquery.min.js')?>"></script>
+
+<script type="text/javascript">
+
+ function showonlyone(thechosenone) {
+
+     $('.newboxes').each(function(index) {
+
+          if ($(this).attr("id") == thechosenone) {
+
+               $(this).show(200);
+
+          }
+
+          else {
+
+               $(this).hide(200);
+
+          }
+
+     });
+
+}
+
+</script>
+<div style="width:100%; height:100%; padding: 0px; margin:0px; float:left; ">
+
+ 	<div style="width:100%; height:80px;">
+
+		<div style="float:left;">
+
+		<img src="<?php echo $this->getSkinUrl('close-div/images/question.png')?>" />
+
+		<font style="color:#266986; font-family:Helvetica; font-size:14px; position:relative; bottom:5px; width:100%;">What's my iPhone capacity ?</font>
+
+		</div>
+
+		<div style="font-family:Helvetica; color:#333333; font-size:16px; float:left; width:100%; position:relative; right:420px;">
+
+			Select your iPhone 4S AT&T sell.
+
+		</div>
+
+	</div>
+
+	<div style="width:auto; height:auto; float:left; margin-right:10px;">
+
+		<div>
+
+		<img src="<?php echo $this->getSkinUrl('close-div/images/big-16gb.png')?>" />
+
+		</div>
+
+		<div style="width:auto; font-family:Helvetica; font-size:14px; color:#333333;"> iPhone 4S 16GB (AT&T /Unlocked)</div>
+
+		<br />
+
+		<div><a href="<?php echo $this->getUrl('sell-itdetails')?>"> <img src="<?php echo $this->getSkinUrl('close-div/images/offer.png')?>" /></a></div>
+
+	</div>
+
+	
+
+	<div style="width:auto; height:auto; float:left; margin-right:10px;">
+
+		<div>
+
+		<img src="<?php echo $this->getSkinUrl('close-div/images/big-16gb.png')?>" />
+
+		</div>
+
+		<div style="width:auto; font-family:Helvetica; font-size:14px; color:#333333;"> iPhone 4S 16GB (AT&T /Unlocked)</div>
+
+		<br />
+
+		<div><a href="#"> <img src="<?php echo $this->getSkinUrl('close-div/images/offer.png')?>" /></a></div>
+
+	</div>
+
+	
+
+	<div style="width:auto; height:auto; float:left; margin-right:10px;">
+
+		<div>
+
+		<img src="<?php echo $this->getSkinUrl('close-div/images/big-16gb.png')?>" />
+
+		</div>
+
+		<div style="width:auto; font-family:Helvetica; font-size:14px; color:#333333;"> iPhone 4S 16GB (AT&T /Unlocked)</div>
+
+		<br />
+
+		<div><a href="#"> <img src="<?php echo $this->getSkinUrl('close-div/images/offer.png')?>" /></a></div>
+
+	</div>
+
+ </div>
