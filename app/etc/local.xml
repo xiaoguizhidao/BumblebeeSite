@@ -40,7 +40,7 @@
             </db>
             <default_setup>
                 <connection>
-                    <host><![CDATA[bumblebeewireless.ddns.net]]></host>
+                    <host><![CDATA[http://bumblebeewireless.ddns.net]]></host>
                     <username><![CDATA[root]]></username>
                     <password><![CDATA[dragon]]></password>
                     <dbname><![CDATA[bumblebeemagento]]></dbname>
