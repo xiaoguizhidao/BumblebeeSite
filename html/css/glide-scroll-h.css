@@ -1,0 +1,116 @@
+/* Styles for scrolling layers  
+	 Specify width and height in hold and wn, and in clip for wn */
+/* Styles for scrolling layers  
+	 Specify width and height in hold and wn, and in clip for wn */
+div#hold	{
+	position:relative;
+	overflow:hidden;
+	width:920px;
+	height:107px;
+	z-index:100
+	}
+div#wn	{
+	position:absolute;
+	left:0px;
+	top:10px;
+	width:920px;
+	height:120px;
+	clip:rect(0px,885px,120px,0px);
+	overflow:hidden;
+	z-index:1;
+	}
+div#lyr1	{ 
+	position:absolute; visibility:hidden; 
+	left:0px; top:0px;
+	z-index:1; 
+	}
+/*table#t1 { width:50px }
+table#t1 td { width:50px; vertical-align:middle; text-align:center } */
+td.arrows a { padding:0 1em }
+div#hold2 {
+	position:relative;
+	overflow:hidden;
+	width:620px;
+	height:154px;
+	z-index:100;
+	left: -2px;
+	visibility: visible;
+}
+div#wn2 {
+	position:absolute;
+	left:20px;
+	top:0px;
+	width:620px;
+	height:154px;
+	clip:rect(0px,620px,154px,0px);
+	overflow:visible;
+	z-index:1;
+	visibility: visible;
+}
+div#lyr2 {
+	position:absolute;
+	left:0px;
+	top:-10px;
+	z-index:1;
+	visibility: visible;
+}
+div#hold3 {
+	position:relative;
+	overflow:hidden;
+	width:1000px;
+	height:295px;
+	z-index:1000;
+	left: -2px;
+	visibility: visible;
+}
+div#wn3 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1000px;
+	height:295px;
+	clip:rect(0px,1000px,295px,0px);
+	overflow:visible;
+	z-index:1000;
+	visibility: visible;
+}
+div#lyr3 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:1000;
+	visibility: visible;
+	width: 1000px;
+	height: 295px;
+}
+
+
+div#hold4 {
+	position:relative;
+	overflow:hidden;
+	width:1000px;
+	height:295px;
+	z-index:1000;
+	left: -2px;
+	visibility: visible;
+}
+div#wn4 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1000px;
+	height:295px;
+	clip:rect(0px,1000px,295px,0px);
+	overflow:visible;
+	z-index:1000;
+	visibility: visible;
+}
+div#lyr4 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:1000;
+	visibility: visible;
+	width: 1000px;
+	height: 295px;
+}
