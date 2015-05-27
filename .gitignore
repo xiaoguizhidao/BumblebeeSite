@@ -69,6 +69,8 @@ Thumbs.db
 /StandardWAMPDefaultWebsite
 /tmp
 /var_
+/var/sessions/
+/var/cache/
 /varold
 
 
@@ -100,6 +102,7 @@ sku2sku.csv
 supee-1533-1.8.1.0.sh
 supee-5344-1.8.1.0.sh
 supee-5344-1.8.1.0.sh.1
+
 
 
 
