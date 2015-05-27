@@ -28,10 +28,10 @@
 <config>
     <global>
         <install>
-            <date><![CDATA[Wed, 08 Jan 2014 01:12:40 +0000]]></date>
+            <date><![CDATA[Tue, 26 May 2015 05:39:06 +0000]]></date>
         </install>
         <crypt>
-            <key><![CDATA[80f5f3185f4bb85936cb86736f217a3c]]></key>
+            <key><![CDATA[8f32dd23a74dfd84e936b7e8fc7c00d8]]></key>
         </crypt>
         <disable_local_modules>false</disable_local_modules>
         <resources>
@@ -40,9 +40,9 @@
             </db>
             <default_setup>
                 <connection>
-                    <host><![CDATA[http://bumblebeewireless.ddns.net]]></host>
+                    <host><![CDATA[bumblebeewireless.ddns.net]]></host>
                     <username><![CDATA[root]]></username>
-                    <password><![CDATA[dragon]]></password>
+                    <password><![CDATA[]]></password>
                     <dbname><![CDATA[bumblebeemagento]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
