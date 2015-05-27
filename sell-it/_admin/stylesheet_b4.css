@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+
+BODY {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000000;
+	margin: 0px;
+}
+A:link{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #493828;	
+}
+A:hover{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #493828;
+	text-decoration:underline;
+}
+A:visited{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #493828;	
+}
+.heading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000066;
+}
+.bg1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bolder;
+	background-color: #0066CC;
+	color:#FFFFFF
+}
+.textfield1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	border: 1px solid #999999;
+}
+.bg2 {
+	background-color: #EEEEEE;
+}
+.button1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #666666;
+}
+.msg_ok {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #006600;
+	background-color: #33FF00;
+}
+.msg_error {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #990000;
+	background-color: #FF0000;
+}
+.redtext{
+font-family:Arial, Helvetica, sans-serif;
+font-size:10px;
+font-weight:normal;
+color:#FF0000;
+}
+.bg_menubottom {
+	background-image: url(images/menu_bg_bottom.gif);
+	background-repeat: no-repeat;
+	line-height:31px;
+}
+.bg_menutop {
+	background-image: url(images/menu_bg_top.gif);
+	background-repeat: no-repeat;
+	line-height:31px;
+}
+
+.bg_menu {
+	background-image: url(images/menu_bg.gif);
+	background-repeat: no-repeat;
+	line-height:31px;
+}

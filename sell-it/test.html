@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script type="text/javascript" lang="javascript"
+
+       src="http://cdn.gigya.com/JS/socialize.js?apikey=2_Y82PzwJ_chSFImHXaIDJClnLyJzmk-VFOavSsaNTzl6m901s_NNxRAS0xJ3bd3_N">
+
+    </script>
+
+</head>
+
+<body >
+
+<br />
+
+    <p>Please sign in using one of the following providers:</p>
+
+    <div id="loginDiv"></div>
+
+    <script type="text/javascript">
+
+        gigya.socialize.showLoginUI({containerID: "loginDiv", cid:'', width:220, height:60,
+              redirectURL: "http://localhost/bumble-sell-it/postLoginPage.php",
+
+                showTermsLink:false, hideGigyaLink:true // remove 'Terms' and 'Gigya' links
+
+                });
+
+    </script>
+
+</body>
+
+</html>

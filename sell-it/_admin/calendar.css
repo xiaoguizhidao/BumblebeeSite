@@ -1,0 +1,83 @@
+.mytextFieldCalendar {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	border: 1px solid #000000;
+	height: 12px;
+	width:195px;
+	padding-left: 5px;
+}
+
+#calendarDiv {
+	display: block;
+	display: none;
+	position: relative;
+	border: 1px solid #000000;
+}
+#calendarDiv a {
+	cursor: pointer;
+	font-family:Verdana;
+	color:#000000;
+	font-size:10px;
+}
+#calendar {
+	background: #ddd;
+	clear: both;
+	text-align: center;
+	font-size: 105%;
+}
+#calendar, #linksTable {
+	width: 206px;
+}
+#calendar .calendarHeader {
+	background: #000000;
+	border-bottom: 1px solid #444;
+	color: #fff;
+	font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; font-weight:normal;
+}
+#calendar .weekDaysTitleRow {
+	background: #777;
+	font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;
+	color: #fff;
+}
+#calendar .weekDaysRow {
+	background: #eee;
+	color: #666;
+}
+#calendar .weekDaysCell {
+	color: #000;
+	border: 1px solid #ddd;
+}
+#calendar .weekDaysCellOver {
+	background: #fff;
+	border: 1px solid #777;
+}
+
+#closeCalender { font-family:Verdana, Arial ; color:#FFFFFF ; font-size:10px; }
+
+#linksTable {
+	background: #C0C7CD;
+	font-family:Arial, Helvetica, sans-serif; font-size:10px ; color:#FFFFFF ; font-weight:bold;
+}
+#linksTable a {
+	display: block;
+	color: #fff;
+	font-family:Arial, Helvetica, sans-serif;;
+	font-weight: bold;
+	font-size: 10px;
+}
+#linksTable a:hover {
+	font-family:Arial, Helvetica, sans-serif;
+	background: #ddd;
+	color: #333;
+}
+#prevMonth {
+	float: left;
+}
+#nextMonth {
+	float: right;
+}
+#today {
+	background: #DC0000; font-weight:bold;
+}
+
