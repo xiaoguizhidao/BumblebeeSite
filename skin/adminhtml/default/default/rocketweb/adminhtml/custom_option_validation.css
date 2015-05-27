@@ -1,0 +1,17 @@
+.custom-option-validator-popup {z-index:999;position:absolute;background-color:#FAFAFA;padding-bottom:10px;width:400px;border:1px solid #D6D6D6; }
+.custom-option-validator-popup .header {background: #6F8992;padding: 2px 10px;color:white;text-align:left;font-weight:bold;}
+.custom-option-validator-popup .popup-content {margin-bottom:20px;padding:10px;}
+.custom-option-validator-popup .popup-content dt { color:white;font-weight:bold;}
+.custom-option-validator-popup .popup-content dt a {display:block;width:100%;}
+.custom-option-validator-popup .popup-content dd {padding-bottom:15px;}
+.custom-option-validator-popup .popup-content dd .validator-container {padding-left:10px;padding-right:10px;}
+.custom-option-validator-popup .popup-content dd .validator-container .validator-checkbox {margin-right:5px;}
+.custom-option-validator-popup .popup-content dd .validator-container .note {font-size:10px;line-height:11px;}
+.custom-option-validator-popup .popup-content .no-validators {padding:10px;padding-bottom:0px;}
+.custom-option-validator-popup .popup-content .buttons-set {margin-bottom:0px;}
+.custom-option-validator-popup .popup-content .extra-field-label {margin-left:10px;font-size:11px;margin-right:5px;}
+.custom-option-validator-popup .popup-content .extra-field {font-size:11px;height:12px;line-height:12px;}
+.custom-option-validator-popup .close {background: url('../../images/dashboard-close.gif') no-repeat;height:13px;width:13px;display:block;float:right;position:relative;top:2px;right:-7px;}
+.custom-option-validator-popup .error-required {border: 1px solid red;}
+
+

@@ -1,0 +1,111 @@
+/**
+ * MageSupport.com
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magesupport.com/license/
+ *
+ * @category   MS
+ * @package    MS_Cartdropdown
+ * @copyright  Copyright (c) 2008-2010 MageSupport.com (http://www.magesupport.com)
+ * @license    http://www.magesupport.com/license/
+ */
+ 
+.cartdrop {left:400px;
+position:absolute;
+top:28px;} 
+
+.header-container .top-container { border:none!important; padding:0!important; background:none!important; width:700px;  float:left; } 
+ 
+span.trigger {
+background:url("../cartdropdown/bkg_cart_down.gif");
+background-repeat:no-repeat;
+background-position:97% center;
+}
+span.trigger a {
+	 color:#4F8100; 
+	 padding-right:15px !important;
+	 font-size:12px;
+}
+span.active { background-color:none;
+
+background:url("../cartdropdown/bkg_cart_up.gif");
+background-repeat:no-repeat;
+background-position:97% center;
+
+}
+
+span.trigger a:hover { }
+span.active {} /*--When toggle is triggered, it will shift the image to the bottom to show its "opened" state--*/
+.toggle_container {
+	margin:0px;
+	padding:0px;
+	position:absolute;
+	width: 250px;
+	clear: both;
+	z-index:9999;
+	color:#000000;
+	margin-left:-100px;
+	
+}
+
+* html .toggle_container {margin-top:15px; margin-left:-200px;}
+*+html .toggle_container {margin-top:15px;margin-left:-200px;}
+
+.toggle_container .block {
+	background:none repeat scroll 0 0 #FFFFFF;
+	border:1px solid #DDDDDD;
+	text-align:left;
+}
+
+
+.quick-access .custom-links li { float:right; display:block; }
+.toggle_container .block-cart a{color:#1E7EC8 !important; background:none !important; padding:0px; }
+.toggle_container .block .block-content li.item{ /*padding:0px;*/ float:none; background:none ;  padding:7px 0px;}
+.toggle_container .block .block-content { padding:10px; background:#FFFFFF;}
+.quick-access .custom-links a.btn-remove {
+	background:url("../images/btn_remove.gif") no-repeat scroll 0 0 transparent!important;
+	display:block;
+	font-size:0;
+	height:12px;
+	line-height:0;
+	overflow:hidden;
+	text-indent:-999em;
+	width:12px;
+}
+
+
+/* Block: Cart FOR DEFAULT MAGENTO THEME */
+
+.toggle_container .block-cart {font-size:11px; }
+.toggle_container .block-cart .block-title strong{ background:none;
+font-size:11px;
+line-height:24px;
+padding-left:8px; }
+.toggle_container .block-cart .block-title { background-image:none; background:#eee; height:24px; }
+.toggle_container .block-cart .block-title strong {/* background-image:url(../images/i_block-cart.gif); */}
+.toggle_container .block-cart .block-title span { color:#444; font-size:12px;}
+.toggle_container .block-cart .summary { background:#fff; padding:2px 8px 8px; margin:1px 0 0; position:relative; z-index:1; }
+.toggle_container .block-cart .amount { margin:0; }
+.toggle_container .block-cart .amount a { font-weight:bold; }
+.toggle_container .block-cart .subtotal { margin:5px 0 0; padding:2px 0; background:#f7f7f7; text-align:center; }
+.toggle_container .block-cart .subtotal .price { font-weight:bold; }
+.toggle_container .block-cart .actions { border-bottom:1px solid #c2c2c2; background:none; margin-bottom:10px; border:none; display:none!important; }
+.toggle_container .block-cart .block-content { background:#fff;}
+
+.toggle_container .truncated .truncated_full_value dl {left:-275px;}
+
+/* Block: Cart  FOR  MODERN THEME */
+/*.toggle_container .drop-cart .block-title { background:none repeat scroll 0 0 #E7E7E7; border-bottom:1px solid #DDDDDD; padding:2px 10px; }
+.toggle_container .drop-cart .block-title strong { color:#444444; }
+.toggle_container .drop-cart .block .block-title strong span { background:none;}
+.toggle_container .drop-cart .block-content { color:#444444; }
+.toggle_container .drop-cart .summary { background:none; padding:8px; margin:-12px -10px 8px; text-align:center; position:relative; z-index:1; }
+.toggle_container .drop-cart .amount { margin:0; }
+.toggle_container .drop-cart .amount a { font-weight:bold; }
+.toggle_container .drop-cart .subtotal { background:#ddd; margin:5px 0 0; line-height:23px; }
+.toggle_container .drop-cart .subtotal .price { font-weight:bold; }
+.toggle_container .drop-cart .actions { display:block !important; }
+.toggle_container .drop-cart .block-content { background:#fff;}*/

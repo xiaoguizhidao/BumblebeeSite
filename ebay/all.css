@@ -1,0 +1,33 @@
+.nivoSlider{
+	position:relative;
+	width:717px;
+	height:275px;
+	margin:0px auto;
+	top: -4px;
+	background-image: url(images/ajax-loader.gif);
+	background-repeat:no-repeat;
+	background-position:center 50%;
+
+}
+.nivoSlider img{display:none;position:absolute;top:0px;left:0px;}
+.nivoSlider a.nivo-imageLink{position:absolute;top:0px;left:0px;width:100%;height:100%;border:0;padding:0;margin:0;z-index:6;display:none;}
+.nivo-slice{display:block;position:absolute;z-index:5;height:100%;}
+.nivo-box{display:block;position:absolute;z-index:5;}
+.nivo-caption{position:absolute;left:0px;bottom:0px;background:#000;color:#fff;opacity:0.8;width:100%;z-index:8;}
+.nivo-caption p{padding:5px;margin:0;}
+.nivo-caption a{display:inline !important;}
+.nivo-html-caption{display:none;}
+.nivo-controlNav a{position:relative;z-index:9;cursor:pointer;}
+.nivo-controlNav a.active{font-weight:bold;}
+.theme-default .nivoSlider{position:relative;background:#fff url(images/ajax-loader.gif) no-repeat 50% 50%;margin-bottom:50px;-webkit-box-shadow:0px 1px 5px 0px #4a4a4a;-moz-box-shadow:0px 1px 5px 0px #4a4a4a;box-shadow:0px 1px 5px 0px #4a4a4a;}
+.theme-default .nivoSlider img{position:absolute;top:0px;left:0px;display:none;}
+.theme-default .nivoSlider a{border:0;display:block;}
+.theme-default .nivo-controlNav{position:absolute;right:440px;top:230px;margin-left:0px;width:310px;text-align:center;}
+.theme-default .nivo-controlNav a{display:inline-block;width:16px;height:16px;overflow:hidden;background:url('images/pagin1.png') no-repeat;text-indent:-9999px;border:0;margin-right:4px;margin-left:4px;}
+.theme-default .nivo-controlNav a.active{background-position:-24px 0;}
+.theme-default .nivo-directionNav a{display:block;width:18px;height:18px;overflow:hidden;text-indent:-9999px;border:none;top:-30px;position:absolute;}.theme-default a.nivo-nextNav{background:url('images/yarr.png') no-repeat;right:0px;}
+.theme-default a.nivo-prevNav{background:url('images/yarl.png') no-repeat;right:95px;}.theme-default .nivo-caption{font-family:Helvetica,Arial,sans-serif; display:none !important;}
+.theme-default .nivo-caption a{color:#fff;border-bottom:1px dotted #fff;}
+.theme-default .nivo-caption a:hover{color:#fff;}
+a.nivo-prevNav{display:none !important;}
+a.nivo-nextNav{display:none !important;}

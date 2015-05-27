@@ -1,0 +1,29 @@
+/* Demo CSS - You do not need this css in your own slider */
+body{font-family: "Open Sans", helvetica, arial;}
+pre{font-family: "Source Code Pro", monospace;display: block;font-size: 13px;line-height: 20px;word-break: break-all;word-wrap: break-word;white-space: pre;white-space: pre-wrap;left:-20px;}
+h2{font-size: 48px;}
+pre + h2{margin-top: 0px;}
+#container{max-width:898px;margin:0 auto;padding-bottom:0px;}
+#banner-fade,
+#banner-slide{margin-bottom: 0px;}
+ul.bjqs-controls.v-centered li a{display:block;padding:10px 18px 10px 18px;color:#fff;text-decoration: none;background:-webkit-linear-gradient(top, #484542, #0c0906);	background:-o-linear-gradient(top, #484542, #0c0906);background:-moz-linear-gradient(top, #484542, #0c0906);background:-ms-linear-gradient(top, #484542, #0c0906);line-height:26px; font-weight:bold;}
+.bjqs-next a {border-radius:0px 15px 15px 0px; position:relative; right:0px !important; top:-46px !important;}
+ul.bjqs-controls.v-centered li a:hover{position:absolute;background:-webkit-linear-gradient(top, #161616, #090909);background:-o-linear-gradient(top, #161616, #090909);background:-moz-linear-gradient(top, #161616, #090909);background:-ms-linear-gradient(top, #161616, #090909);color:#7f7f7f; font-weight:bold;}
+.bjqs-prev a {border-radius:15px 0 0 15px; border:none; top:0px; position:relative;}
+ol.bjqs-markers li a{padding:2px 5px;background:#fff;color:#fff;margin:0px 0px 0px 10px; height:8px; border-radius:10px;border:2px solid #fff; float:left; text-decoration:none; display:block !important; width:2px;}
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{background:url("../images/pagination.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); border:2px solid #504F4F;}
+p.bjqs-caption{background: rgba(255,255,255,0.5);}
+
+
+ul.bjqs{position:relative; list-style:none;padding:0;margin:0;overflow:hidden; display:none;}
+li.bjqs-slide{position:absolute; display:none;}
+ul.bjqs-controls{list-style:none;margin:0;padding:0;z-index:9999; display:none;}
+ul.bjqs-controls.v-centered li a{position:absolute;}
+ul.bjqs-controls.v-centered li.bjqs-next a{right:0;}
+ul.bjqs-controls.v-centered li.bjqs-prev a{left:0px !important; top:-46px !important;}
+ol.bjqs-markers{list-style: none; padding: 0; margin:0px 0px 0px 0px; text-align:left; width:100%; bottom:15px; position:absolute; left:0 !important;}
+ol.bjqs-markers.h-centered{text-align: center;}
+ol.bjqs-markers li{display:inline;}
+ol.bjqs-markers li a{display:inline-block;}
+p.bjqs-caption{display:block;width:96%;margin:0;padding:2%;position:absolute;bottom:0;}

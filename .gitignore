@@ -50,7 +50,6 @@ Thumbs.db
 /AuthorizeCIM
 /cgi-bin
 /downloader
-/ebay
 /errors
 /html
 /htmlOriginal
@@ -62,13 +61,11 @@ Thumbs.db
 /phpmyadmin
 /pkginfo
 /preview
-/shell
-/skin
 /SpryAssets
 /StandardWAMPDefaultWebsite
 /tmp
 /var_
-/var/sessions/
+/var/session/
 /var/cache/
 /varold
 
